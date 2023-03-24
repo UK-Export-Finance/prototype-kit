@@ -1,0 +1,201 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Facilities list – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "Get a guarantee for export finance",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "John Smith",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+  
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+  {{ mojPrimaryNavigation({
+    label: 'Primary navigation',
+    items: [
+      {
+        text: 'Home',
+        href: '#1',
+        active: true
+      },
+      {
+        text: 'Reports',
+        href: '#2'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      Facilities
+    </h1>
+
+    {%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+    {% set todayHtml %}
+        dgiwediuh
+    {% endset %}
+
+    {{ govukTable({
+      attributes: {
+        'data-module': 'moj-sortable-table'
+      },
+      head: [
+        {
+          text: "Exporter",
+          attributes: {
+            "aria-sort": "ascending"
+          }
+        },
+        {
+          text: "Bank ref",
+          attributes: {
+            "aria-sort": "none"
+          }
+        },
+        {
+          text: "Product",
+          attributes: {
+            "aria-sort": "none"
+          }
+        },
+        {
+          text: "Last updated",
+          attributes: {
+            "aria-sort": "none"
+          }
+        },
+        {
+          text: "Status",
+          attributes: {
+            "aria-sort": "none"
+          }
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "COMPRESSORS LTD"
+          },
+          {
+            html: '<a href="#">00200013718</a>'
+          },
+          {
+            text: "GEF"
+          },
+          {
+            text: "27 Mar 2023"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">Updated</strong>'
+          }
+        ],
+        [
+          {
+            text: "PETROLEUM LTD"
+          },
+          {
+            html: '<a href="#">00200014139</a>'
+          },
+          {
+            text: "GEF"
+          },
+          {
+            text: "1 Mar 2023"
+          },
+          {
+            html: '<strong class="govuk-tag">Update required</strong>'
+          }
+        ],
+        [
+          {
+            text: "PHARAMACUETICALS LTD"
+          },
+          {
+            html: '<a href="#">00200014674</a>'
+          },
+          {
+            text: "GEF"
+          },
+          {
+            text: "1 Mar 2023"
+          },
+          {
+            html: '<strong class="govuk-tag">Update required</strong>'
+          }
+        ],
+        [
+          {
+            text: "XYZ MOTORS LTD"
+          },
+          {
+            html: '<a href="#">00200014998</a>'
+          },
+          {
+            text: "GEF"
+          },
+          {
+            text: "1 Mar 2023"
+          },
+          {
+            html: '<strong class="govuk-tag">Update required</strong>'
+          }
+        ]
+
+      ]
+    }) }}
+
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  
+    
+
+  </div>
+</div>
+
+{% endblock %}
