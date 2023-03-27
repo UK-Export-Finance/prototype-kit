@@ -1,0 +1,298 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+PETROLEUM LTD – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "UKEF",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "John Smith",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }} 
+  
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  <!--{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+  {{ mojPrimaryNavigation({
+    label: 'Primary navigation',
+    items: [
+      {
+        text: 'Home',
+        href: '/facility-list',
+        active: false
+      },
+      {
+        text: 'Reports',
+        href: '#2',
+        active: false
+      }
+    ]
+  }) }}
+-->
+  {{ govukBackLink({
+    text: "Back",
+    href: "facility-list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      Facility
+    </h1>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Exporter",
+            classes: "govuk-!-width-one-half"
+          },
+          value: {
+            text: "PETROLEUM LTD",
+            classes: "govuk-!-width-one-quarter"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "Bank transaction reference",
+            classes: "govuk-!-width-one-quarter"
+          },
+          value: {
+            text: "TEST-23456"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "UKEF reference"
+          },
+          value: {
+            text: "00200013718"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "Product type"
+          },
+          value: {
+            text: "Contingent"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "Facility description"
+          },
+          value: {
+            text: "Guarantees"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "Facility base currency"
+          },
+          value: {
+            text: "GBP"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "Bank facility limit"
+          },
+          value: {
+            text: "£300,000"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "Bank facility current utilisation"
+          },
+          value: {
+            text: "£125,000"
+          },
+          actions: {
+            items: [
+              {
+                href: "facility-2-facility-utilisation",
+                text: "Update",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "UKEF covered"
+          },
+          value: {
+            text: "80%"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "UKEF's maximum exposure"
+          },
+          value: {
+            text: "£240,000.00"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "UKEF's current exposure"
+          },
+          value: {
+            text: "£41,666.67"
+          },
+          actions: {
+            items: [
+              {
+                href: "facility-2-ukef-exposure",
+                text: "Update",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "UKEF's guarantee fees accrued for the quarter"
+          },
+          value: {
+            text: "£95.64"
+          },
+          actions: {
+            items: [
+              {
+                href: "facility-2-fees-accrued",
+                text: "Update",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Guarantee fees actually paid to UKEF since last quarter"
+          },
+          value: {
+            text: "£79.23"
+          },
+          actions: {
+            items: [
+              {
+                href: "facility-2-fees-paid",
+                text: "Update",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Covered facility maturity date"
+          },
+          value: {
+            text: "18 Sep 2026"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "1 year probability of default (reported semi-annually)"
+          },
+          value: {
+            text: "Reported in December"
+          },
+          actions: {
+          }
+        },
+        {
+          key: {
+            text: "Flag: 90 days still no utilisation (from date of facility letter)"
+          },
+          value: {
+            html: '<strong class="govuk-tag">Facility utilised</strong>'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Update",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Facility updated",
+      href: "facility-list"
+    }) }}
+
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

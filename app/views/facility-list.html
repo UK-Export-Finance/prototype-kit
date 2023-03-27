@@ -8,7 +8,7 @@
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader({
     homepageUrl: "#",
-    serviceName: "Get a guarantee for export finance",
+    serviceName: "UKEF",
     serviceUrl: "#",
     navigation: [
       {
@@ -44,7 +44,8 @@
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
 
-  {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+  <!--
+    {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
 
   {{ mojPrimaryNavigation({
     label: 'Primary navigation',
@@ -60,6 +61,7 @@
       }
     ]
   }) }}
+-->
 {% endblock %}
 
 {% block content %}
@@ -71,129 +73,62 @@
       Facilities
     </h1>
 
-    {%- from "govuk/components/table/macro.njk" import govukTable -%}
+    <table class="govuk-table" data-module="moj-sortable-table">
 
-    {% set todayHtml %}
-        dgiwediuh
-    {% endset %}
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+    
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">Exporter</th>
+    
+          <th scope="col" class="govuk-table__header" aria-sort="none">UKEF reference</th>
+    
+          <th scope="col" class="govuk-table__header" aria-sort="none">Product</th>
 
-    {{ govukTable({
-      attributes: {
-        'data-module': 'moj-sortable-table'
-      },
-      head: [
-        {
-          text: "Exporter",
-          attributes: {
-            "aria-sort": "ascending"
-          }
-        },
-        {
-          text: "Bank ref",
-          attributes: {
-            "aria-sort": "none"
-          }
-        },
-        {
-          text: "Product",
-          attributes: {
-            "aria-sort": "none"
-          }
-        },
-        {
-          text: "Last updated",
-          attributes: {
-            "aria-sort": "none"
-          }
-        },
-        {
-          text: "Status",
-          attributes: {
-            "aria-sort": "none"
-          }
-        }
-      ],
-      rows: [
-        [
-          {
-            text: "COMPRESSORS LTD"
-          },
-          {
-            html: '<a href="#">00200013718</a>'
-          },
-          {
-            text: "GEF"
-          },
-          {
-            text: "27 Mar 2023"
-          },
-          {
-            html: '<strong class="govuk-tag govuk-tag--green">Updated</strong>'
-          }
-        ],
-        [
-          {
-            text: "PETROLEUM LTD"
-          },
-          {
-            html: '<a href="#">00200014139</a>'
-          },
-          {
-            text: "GEF"
-          },
-          {
-            text: "1 Mar 2023"
-          },
-          {
-            html: '<strong class="govuk-tag">Update required</strong>'
-          }
-        ],
-        [
-          {
-            text: "PHARAMACUETICALS LTD"
-          },
-          {
-            html: '<a href="#">00200014674</a>'
-          },
-          {
-            text: "GEF"
-          },
-          {
-            text: "1 Mar 2023"
-          },
-          {
-            html: '<strong class="govuk-tag">Update required</strong>'
-          }
-        ],
-        [
-          {
-            text: "XYZ MOTORS LTD"
-          },
-          {
-            html: '<a href="#">00200014998</a>'
-          },
-          {
-            text: "GEF"
-          },
-          {
-            text: "1 Mar 2023"
-          },
-          {
-            html: '<strong class="govuk-tag">Update required</strong>'
-          }
-        ]
+          <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
 
-      ]
-    }) }}
+          <th scope="col" class="govuk-table__header" aria-sort="none">Last updated</th>
+    
+        </tr>
+      </thead>
+    
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
 
+          <td class="govuk-table__cell">COMPRESSORS LTD</td>
+          <td class="govuk-table__cell"><a href="#">00200013718</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
+          <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">PETROLEUM LTD</td>
+          <td class="govuk-table__cell"><a href="facility-2">00200014139</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+          <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">PHARAMACUETICALS LTD</td>
+          <td class="govuk-table__cell"><a href="#">00200014674</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+          <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">XYZ MOTORS LTD</td>
+          <td class="govuk-table__cell"><a href="#">00200014998</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+          <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  
-    
 
   </div>
 </div>

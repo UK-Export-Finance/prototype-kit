@@ -1,0 +1,112 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+Update facility – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "UKEF",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "John Smith",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }} 
+  
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  <!--{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+  {{ mojPrimaryNavigation({
+    label: 'Primary navigation',
+    items: [
+      {
+        text: 'Home',
+        href: '/facility-list',
+        active: false
+      },
+      {
+        text: 'Reports',
+        href: '#2',
+        active: false
+      }
+    ]
+  }) }}
+-->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+        Guarantee fees paid to UKEF since last quarter
+    </h1>
+
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+        Current fees paid
+    </h2>
+    <p class="govuk-body">£79.23</p>
+
+    {{ govukInput({
+        id: "fees-paid",
+        name: "fees-paid",
+        label: {
+          text: "New fees paid",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        suffix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue",
+          href: "facility-2"
+        }) }}
+      
+        <a class="govuk-link" href="facility-2">Cancel</a>
+      </div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
