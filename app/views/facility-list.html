@@ -7,7 +7,7 @@
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader({
-    homepageUrl: "#",
+    homepageUrl: "/index",
     serviceName: "Manage an export facility",
     serviceUrl: "/facility-list",
     navigation: [
@@ -89,14 +89,14 @@
         <tr class="govuk-table__row">
 
           <td class="govuk-table__cell">COMPRESSORS LTD</td>
-          <td class="govuk-table__cell"><a href="#">00200013718</a></td>
+          <td class="govuk-table__cell"><a href="/facility1">00200013718</a></td>
           <td class="govuk-table__cell">GEF</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
           <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PETROLEUM LTD</td>
-          <td class="govuk-table__cell"><a href="facility-2">00200014139</a></td>
+          <td class="govuk-table__cell"><a href="/facility2">00200014139</a></td>
           <td class="govuk-table__cell">GEF</td>
 
           {% if 'yes' in data['facility-2-updated'] %}
@@ -108,10 +108,6 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
             <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
           {% endif %}
-
-          
-
-
 
         </tr>
         <tr class="govuk-table__row">

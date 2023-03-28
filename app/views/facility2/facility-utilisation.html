@@ -7,7 +7,7 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader({
-    homepageUrl: "#",
+    homepageUrl: "/index",
     serviceName: "Manage an export facility",
     serviceUrl: "/facility-list",
     navigation: [
@@ -76,11 +76,13 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
         Current utilisation amount
     </h2>
-    <p class="govuk-body">£125,000</p>
+    <p class="govuk-body">{{ data['facility-2-utilisation'] }} GBP</p>
+
+    <form class="form" action="index" method="post">
 
     {{ govukInput({
-        id: "utilisation-amount",
-        name: "utilisation-amount",
+        id: "facility-2-utilisation",
+        name: "facility-2-utilisation",
         label: {
           text: "New utilisation-amount",
           classes: "govuk-label--s",
@@ -93,17 +95,14 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
         spellcheck: false
       }) }}
 
-      
-
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Save and continue",
-          href: "facility-2"
+          text: "Save and continue"
         }) }}
       
-        <a class="govuk-link" href="facility-2">Cancel</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="index">Cancel</a>
       </div>
-
+    </form>
   </div>
 </div>
 

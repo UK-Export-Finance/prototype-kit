@@ -7,7 +7,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader({
-    homepageUrl: "#",
+    homepageUrl: "/index",
     serviceName: "Manage an export facility",
     serviceUrl: "/facility-list",
     navigation: [
@@ -185,28 +185,25 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Bank facility current utilisation
         </dt>
         <dd class="govuk-summary-list__value">
-          125,000 GBP
+          {{ data['facility-2-utilisation'] }} GBP
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="facility-2-facility-utilisation">
+          <a class="govuk-link" href="/facility2/facility-utilisation">
             Update<span class="govuk-visually-hidden"> bank facility current utilisation</span>
           </a>
         </dd>
       </div>
 
-      
-
-      
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           UKEF's current exposure
         </dt>
         <dd class="govuk-summary-list__value">
-          41,666.67 GBP
+          {{ data['facility-2-exposure'] }} GBP
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="facility-2-ukef-exposure">
+          <a class="govuk-link" href="/facility2/ukef-exposure">
             Update<span class="govuk-visually-hidden"> UKEF's current exposure</span>
           </a>
         </dd>
@@ -217,10 +214,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           UKEF's guarantee fees accrued for the quarter
         </dt>
         <dd class="govuk-summary-list__value">
-          95.64 GBP
+          {{ data['facility-2-accrued'] }} GBP
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="facility-2-fees-accrued">
+          <a class="govuk-link" href="/facility2/fees-accrued">
             Update<span class="govuk-visually-hidden"> UKEF's guarantee fees accrued for the quarter</span>
           </a>
         </dd>
@@ -231,10 +228,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Guarantee fees actually paid to UKEF since last quarter
         </dt>
         <dd class="govuk-summary-list__value">
-          79.23 GBP
+          {{ data['facility-2-paid'] }} GBP
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="facility-2-fees-paid">
+          <a class="govuk-link" href="/facility2/fees-paid">
             Update<span class="govuk-visually-hidden"> Guarantee fees actually paid to UKEF since last quarter</span>
           </a>
         </dd>

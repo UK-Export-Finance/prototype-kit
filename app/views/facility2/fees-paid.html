@@ -7,7 +7,7 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader({
-    homepageUrl: "#",
+    homepageUrl: "/index",
     serviceName: "Manage an export facility",
     serviceUrl: "/facility-list",
     navigation: [
@@ -70,40 +70,38 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-l">
-        UKEF's current exposure
+        Guarantee fees paid to UKEF since last quarter
     </h1>
 
     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
-        Current exposure amount
+        Current fees paid
     </h2>
-    <p class="govuk-body">£41,666.67</p>
+      <p class="govuk-body">{{ data['facility-2-paid'] }} GBP</p>
+      <form class="form" action="index" method="post">
 
-    {{ govukInput({
-        id: "exposure",
-        name: "exposure",
-        label: {
-          text: "New exposure amount",
-          classes: "govuk-label--s",
-          isPageHeading: true
-        },
-        suffix: {
-          text: "GBP"
-        },
-        classes: "govuk-input--width-10",
-        spellcheck: false
-      }) }}
+        {{ govukInput({
+            id: "facility-2-paid",
+            name: "facility-2-paid",
+            label: {
+              text: "New fees paid",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            },
+            suffix: {
+              text: "GBP"
+            },
+            classes: "govuk-input--width-10",
+            spellcheck: false
+          }) }}
 
-      
-
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Save and continue",
-          href: "facility-2"
-        }) }}
-      
-        <a class="govuk-link" href="facility-2">Cancel</a>
-      </div>
-
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Save and continue"
+            }) }}
+          
+            <a class="govuk-link govuk-link--no-visited-state" href="index">Cancel</a>
+          </div>
+      </form>
   </div>
 </div>
 

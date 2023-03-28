@@ -4,18 +4,27 @@
 Home – {{serviceName}} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block beforeContent %}
+{{ govukPhaseBanner({
+    tag: {
+      text: "prototypes"
+    },
+    html: ''
+  }) }}
+  {% endblock %}  
+
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+    <h1 class="govuk-heading-l">Short-term business reconciliation</h1>
+    <p class="govuk-body"><a href="facility-list.html">Bank updates facilities</a></p>
+      
+    
 
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
-
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    <!--{% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}-->
   </div>
 </div>
 
