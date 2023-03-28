@@ -87,7 +87,6 @@
     
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-
           <td class="govuk-table__cell">COMPRESSORS LTD</td>
           <td class="govuk-table__cell"><a href="#">00200013718</a></td>
           <td class="govuk-table__cell">GEF</td>
@@ -98,35 +97,22 @@
           <td class="govuk-table__cell">PETROLEUM LTD</td>
           <td class="govuk-table__cell"><a href="facility-2">00200014139</a></td>
           <td class="govuk-table__cell">GEF</td>
-
-          {% if 'yes' in data['facility-2-updated'] %}
-          <!-- updated view -->
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
-            <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
-          {% else %}
-          <!-- default view -->
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
-            <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
-          {% endif %}
-
-          
-
-
-
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
+          <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PHARAMACUETICALS LTD</td>
           <td class="govuk-table__cell"><a href="facility-1">00200014674</a></td>
           <td class="govuk-table__cell">GEF</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
-          <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
+          <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">XYZ MOTORS LTD</td>
           <td class="govuk-table__cell"><a href="#">00200014998</a></td>
           <td class="govuk-table__cell">GEF</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
-          <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
+          <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
         </tr>
       </tbody>
     </table>
@@ -136,7 +122,10 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
+    {{ govukButton({
+        text: "Finished - calculate fees due",
+        href: "finished"
+      }) }}
   </div>
 </div>
 

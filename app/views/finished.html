@@ -1,0 +1,118 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Finished – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "Manage an export facility",
+    serviceUrl: "/facility-list",
+    navigation: [
+      {
+        href: "#",
+        text: "John Smith",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+  
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  <!--
+    {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+  {{ mojPrimaryNavigation({
+    label: 'Primary navigation',
+    items: [
+      {
+        text: 'Home',
+        href: '#1',
+        active: true
+      },
+      {
+        text: 'Reports',
+        href: '#2'
+      }
+    ]
+  }) }}
+-->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-width-container">
+        <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Fees due to UKEF<br><strong>£1023.56</strong>
+                </h1>
+                <div class="govuk-panel__body">
+                  Payment reference number<br><strong>AB12345</strong>
+                </div>
+            </div>
+              
+            <h2 class="govuk-heading-m">What happens next</h2>
+                <p class="govuk-body">
+                    Pay UKEF the amount due using the payment reference. 
+                </p>
+
+                <p class="govuk-body">
+                    An invoice has been emailed to xxxx@bank.co.uk and you can download it here.
+                </p>
+                {{ govukButton({
+                    text: "Download invoice",
+                    href: "#",
+                    classes: "govuk-button--secondary"
+                }) }}
+
+                <p class="govuk-body">
+                    <a href="#" class="govuk-link">Return to xxxxxx xxxxxxxx</p></a> 
+                </p>
+            </div>
+          </div>
+        </main>
+      </div>
+
+    
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+  </div>
+</div>
+
+{% endblock %}

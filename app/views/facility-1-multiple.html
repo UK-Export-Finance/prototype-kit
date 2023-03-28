@@ -8,8 +8,8 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader({
     homepageUrl: "#",
-    serviceName: "UKEF",
-    serviceUrl: "#",
+    serviceName: "Manage an export facility",
+    serviceUrl: "/facility-list",
     navigation: [
       {
         href: "#",
@@ -136,10 +136,10 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Save and continue",
-          href: "facility-2"
+          href: "facility-1"
         }) }}
       
-        <a class="govuk-link" href="#">Cancel</a>
+        <a class="govuk-link" href="facility-1">Cancel</a>
       </div>
 
   </div>

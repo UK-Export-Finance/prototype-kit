@@ -1,15 +1,15 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
 
 {% block pageTitle %}
-PETROLEUM LTD – {{ serviceName }} – GOV.UK Prototype Kit
+Facility – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader({
     homepageUrl: "#",
-    serviceName: "UKEF",
-    serviceUrl: "#",
+    serviceName: "Manage an export facility",
+    serviceUrl: "/facility-list",
     navigation: [
       {
         href: "#",
@@ -29,7 +29,7 @@ PETROLEUM LTD – {{ serviceName }} – GOV.UK Prototype Kit
   
 {% endblock %}
 
-{% block pageScripts %}
+{% block pageScripts  %}
   <script type="text/javascript">
     var $element = document.querySelector('#step-by-step-navigation')
     var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
@@ -72,218 +72,212 @@ PETROLEUM LTD – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
+    <span class="govuk-caption-l">General Export Facility</span>
     <h1 class="govuk-heading-l">
-      Facility
+      PETROLEUM LTD
     </h1>
 
-    {{ govukSummaryList({
-      rows: [
-        {
-          key: {
-            text: "Exporter",
-            classes: "govuk-!-width-one-half"
-          },
-          value: {
-            text: "PETROLEUM LTD",
-            classes: "govuk-!-width-one-quarter"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "Bank transaction reference",
-            classes: "govuk-!-width-one-quarter"
-          },
-          value: {
-            text: "TEST-23456"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "UKEF reference"
-          },
-          value: {
-            text: "00200013718"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "Product type"
-          },
-          value: {
-            text: "Contingent"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "Facility description"
-          },
-          value: {
-            text: "Guarantees"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "Facility base currency"
-          },
-          value: {
-            text: "GBP"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "Bank facility limit"
-          },
-          value: {
-            text: "£300,000"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "Bank facility current utilisation"
-          },
-          value: {
-            text: "£125,000"
-          },
-          actions: {
-            items: [
-              {
-                href: "facility-2-facility-utilisation",
-                text: "Update",
-                visuallyHiddenText: "name"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "UKEF covered"
-          },
-          value: {
-            text: "80%"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "UKEF's maximum exposure"
-          },
-          value: {
-            text: "£240,000.00"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "UKEF's current exposure"
-          },
-          value: {
-            text: "£41,666.67"
-          },
-          actions: {
-            items: [
-              {
-                href: "facility-2-ukef-exposure",
-                text: "Update",
-                visuallyHiddenText: "name"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "UKEF's guarantee fees accrued for the quarter"
-          },
-          value: {
-            text: "£95.64"
-          },
-          actions: {
-            items: [
-              {
-                href: "facility-2-fees-accrued",
-                text: "Update",
-                visuallyHiddenText: "name"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Guarantee fees actually paid to UKEF since last quarter"
-          },
-          value: {
-            text: "£79.23"
-          },
-          actions: {
-            items: [
-              {
-                href: "facility-2-fees-paid",
-                text: "Update",
-                visuallyHiddenText: "name"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Covered facility maturity date"
-          },
-          value: {
-            text: "18 Sep 2026"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "1 year probability of default (reported semi-annually)"
-          },
-          value: {
-            text: "Reported in December"
-          },
-          actions: {
-          }
-        },
-        {
-          key: {
-            text: "Flag: 90 days still no utilisation (from date of facility letter)"
-          },
-          value: {
-            html: '<strong class="govuk-tag">Facility utilised</strong>'
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Update",
-                visuallyHiddenText: "name"
-              }
-            ]
-          }
-        }
-      ]
-    }) }}
 
-    {{ govukButton({
-      text: "Facility updated",
-      href: "facility-list"
-    }) }}
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Bank transaction reference
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+          ABC-23456
+        </dd>
+        <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UKEF reference
+        </dt>
+        <dd class="govuk-summary-list__value">
+          00200013718
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Product type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Contingent
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Facility description
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Guarantees
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Facility base currency
+        </dt>
+        <dd class="govuk-summary-list__value">
+          GBP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Covered facility maturity date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          18 Sep 2026
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Bank facility limit
+        </dt>
+        <dd class="govuk-summary-list__value">
+          300,000 GBP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UKEF covered
+        </dt>
+        <dd class="govuk-summary-list__value">
+          80%
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UKEF's maximum exposure
+        </dt>
+        <dd class="govuk-summary-list__value">
+          240,000.00 GBP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Bank facility current utilisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          125,000 GBP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="facility-2-facility-utilisation">
+            Update<span class="govuk-visually-hidden"> bank facility current utilisation</span>
+          </a>
+        </dd>
+      </div>
+
+      
+
+      
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UKEF's current exposure
+        </dt>
+        <dd class="govuk-summary-list__value">
+          41,666.67 GBP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="facility-2-ukef-exposure">
+            Update<span class="govuk-visually-hidden"> UKEF's current exposure</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UKEF's guarantee fees accrued for the quarter
+        </dt>
+        <dd class="govuk-summary-list__value">
+          95.64 GBP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="facility-2-fees-accrued">
+            Update<span class="govuk-visually-hidden"> UKEF's guarantee fees accrued for the quarter</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Guarantee fees actually paid to UKEF since last quarter
+        </dt>
+        <dd class="govuk-summary-list__value">
+          79.23 GBP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="facility-2-fees-paid">
+            Update<span class="govuk-visually-hidden"> Guarantee fees actually paid to UKEF since last quarter</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          1 year probability of default (reported semi-annually)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Reported in December
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Flag: 90 days still no utilisation (from date of facility letter)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <strong class="govuk-tag">Facility utilised</strong>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Update<span class="govuk-visually-hidden"> Flag: 90 days still no utilisation (from date of facility letter)</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+
+    <form action="/facility-list" method="post" novalidate>
+      <input type="hidden" name="facility-2-updated" value="yes">
+
+      {{ govukButton({
+        text: "Facility update completed",
+        value: data['facility-2-updated']
+      }) }}
+
+    </form>
+
+    
 
 
   </div>
