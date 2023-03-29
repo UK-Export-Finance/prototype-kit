@@ -5,6 +5,7 @@ module.exports = {
   // Dates
   '1-month-ago': '28 Feb 2023',
   'todays-date': '29 Mar 2023',
+  'todays-date-full': '29 March 2023',
   'tomorrow': '28 Mar 2023',
   
   // FACILITY 1 VALUES

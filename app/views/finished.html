@@ -43,25 +43,6 @@
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
-
-  <!--
-    {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
-
-  {{ mojPrimaryNavigation({
-    label: 'Primary navigation',
-    items: [
-      {
-        text: 'Home',
-        href: '#1',
-        active: true
-      },
-      {
-        text: 'Reports',
-        href: '#2'
-      }
-    ]
-  }) }}
--->
 {% endblock %}
 
 {% block content %}
@@ -73,31 +54,62 @@
         <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
+              
               <div class="govuk-panel govuk-panel--confirmation">
                 <h1 class="govuk-panel__title">
-                  Fees due to UKEF<br><strong>£1023.56</strong>
-                </h1>
+                  Updates submitted to UKEF
+                </h1>  
                 <div class="govuk-panel__body">
-                  Payment reference number<br><strong>AB12345</strong>
+                  Pay UKEF the amount due
                 </div>
-            </div>
-              
-            <h2 class="govuk-heading-m">What happens next</h2>
-                <p class="govuk-body">
-                    Pay UKEF the amount due using the payment reference. 
-                </p>
+              </div>
+
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Amount due
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    GBP 2496.56
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Payment reference
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    AB12345
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    SWIFT code
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    BANKGB22
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['todays-date-full'] }}
+                  </dd>
+                </div>
+              </dl>
 
                 <p class="govuk-body">
-                    An invoice has been emailed to xxxx@bank.co.uk and you can download it here.
+                    An invoice is available in xxxxx xxxxxx and has been emailed to inbox@thebank.com.
                 </p>
-                {{ govukButton({
+                <!--{{ govukButton({
                     text: "Download invoice",
                     href: "#",
                     classes: "govuk-button--secondary"
-                }) }}
+                }) }}-->
 
                 <p class="govuk-body">
-                    <a href="#" class="govuk-link">Return to xxxxxx xxxxxxxx</p></a> 
+                    <a href="#" class="govuk-link">Return to all facilities</p></a> 
                 </p>
             </div>
           </div>
