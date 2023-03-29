@@ -50,40 +50,41 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <span class="govuk-caption-l">Updating {{ data['facility-2-ref'] }}</span>
+    <span class="govuk-caption-l">Updating {{ data['facility-3-ref'] }}</span>
     <h1 class="govuk-heading-l">
-      Fees paid to UKEF since last report submitted
+        Bank facility current utilisation
     </h1>
 
     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
-        Current fees paid
+        Current utilisation amount
     </h2>
-      <p class="govuk-body">GBP {{ data['facility-2-paid'] }}</p>
-      <form class="form" action="index" method="post">
+    <p class="govuk-body">GBP {{ data['facility-3-utilisation'] }}</p>
 
-        {{ govukInput({
-            id: "facility-2-paid",
-            name: "facility-2-paid",
-            label: {
-              text: "New fees paid",
-              classes: "govuk-label--s",
-              isPageHeading: true
-            },
-            prefix: {
-              text: "GBP"
-            },
-            classes: "govuk-input--width-10",
-            spellcheck: false
-          }) }}
+    <form class="form" action="index" method="post">
 
-          <div class="govuk-button-group">
-            {{ govukButton({
-              text: "Save and continue"
-            }) }}
-          
-            <a class="govuk-link govuk-link--no-visited-state" href="index">Cancel</a>
-          </div>
-      </form>
+    {{ govukInput({
+        id: "facility-3-utilisation",
+        name: "facility-3-utilisation",
+        label: {
+          text: "New utilisation amount",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+      
+        <a class="govuk-link govuk-link--no-visited-state" href="index">Cancel</a>
+      </div>
+    </form>
   </div>
 </div>
 

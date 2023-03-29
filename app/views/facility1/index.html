@@ -56,7 +56,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-l">General Export Facility</span>
     <h1 class="govuk-heading-xl">
-      {{ data['facility-2-name'] }}
+      {{ data['facility-1-name'] }}
     </h1>
 
     <h2 class="govuk-heading-l">Overview</h2>
@@ -67,7 +67,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           UKEF facility ID
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-          {{ data['facility-2-ref'] }}
+          {{ data['facility-1-ref'] }}
         </dd>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
         </dd>
@@ -78,7 +78,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Bank facility reference
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-          ABC-23456
+          DEF-56789
         </dd>
         <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
 
@@ -196,10 +196,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Bank facility current utilisation
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-          GBP {{ data['facility-2-utilisation'] }}
+          GBP {{ data['facility-1-utilisation'] }}
         </dd>
         <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
-          <a class="govuk-link" href="/facility2/facility-utilisation">
+          <a class="govuk-link" href="/facility1/facility-utilisation">
             Update<span class="govuk-visually-hidden"> bank facility current utilisation</span>
           </a>
         </dd>
@@ -209,10 +209,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           UKEF's current exposure
         </dt>
         <dd class="govuk-summary-list__value">
-          GBP {{ data['facility-2-exposure'] }}
+          GBP {{ data['facility-1-exposure'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="/facility2/ukef-exposure">
+          <a class="govuk-link" href="/facility1/ukef-exposure">
             Update<span class="govuk-visually-hidden"> UKEF's current exposure</span>
           </a>
         </dd>
@@ -222,10 +222,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Fees paid to UKEF since last report submitted
         </dt>
         <dd class="govuk-summary-list__value">
-          GBP {{ data['facility-2-paid'] }} 
+          GBP {{ data['facility-1-paid'] }} 
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="/facility2/fees-paid">
+          <a class="govuk-link" href="/facility1/fees-paid">
             Update<span class="govuk-visually-hidden">Fees paid to UKEF since last report submitted</span>
           </a>
         </dd>
@@ -235,10 +235,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Outstanding accrual at reporting date
         </dt>
         <dd class="govuk-summary-list__value">
-          GBP {{ data['facility-2-accrued'] }} 
+          GBP {{ data['facility-1-accrued'] }} 
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="/facility2/fees-accrued">
+          <a class="govuk-link" href="/facility1/fees-accrued">
             Update<span class="govuk-visually-hidden"> UKEF's guarantee fees accrued for the quarter</span>
           </a>
         </dd>
@@ -246,11 +246,11 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     </dl>
 
     <form action="/facility-list" method="post" novalidate>
-      <input type="hidden" name="facility-2-updated" value="yes">
+      <input type="hidden" name="facility-1-updated" value="yes">
 
       {{ govukButton({
         text: "Facility updates completed",
-        value: data['facility-2-updated']
+        value: data['facility-1-updated']
       }) }}
 
     </form>

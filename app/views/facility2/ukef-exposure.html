@@ -43,25 +43,6 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
-
-  <!--{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
-
-  {{ mojPrimaryNavigation({
-    label: 'Primary navigation',
-    items: [
-      {
-        text: 'Home',
-        href: '/facility-list',
-        active: false
-      },
-      {
-        text: 'Reports',
-        href: '#2',
-        active: false
-      }
-    ]
-  }) }}
--->
 {% endblock %}
 
 {% block content %}
@@ -69,6 +50,7 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+    <span class="govuk-caption-l">Updating {{ data['facility-2-ref'] }}</span>
     <h1 class="govuk-heading-l">
         UKEF's current exposure
     </h1>
@@ -76,7 +58,7 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
         Current exposure amount
     </h2>
-    <p class="govuk-body">{{ data['facility-2-exposure'] }} GBP</p>
+    <p class="govuk-body">GBP {{ data['facility-2-exposure'] }}</p>
 
     <form class="form" action="index" method="post">
 
@@ -88,7 +70,7 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
             classes: "govuk-label--s",
             isPageHeading: true
           },
-          suffix: {
+          prefix: {
             text: "GBP"
           },
           classes: "govuk-input--width-10",

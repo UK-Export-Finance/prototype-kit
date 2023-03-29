@@ -43,25 +43,6 @@
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
-
-  <!--
-    {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
-
-  {{ mojPrimaryNavigation({
-    label: 'Primary navigation',
-    items: [
-      {
-        text: 'Home',
-        href: '#1',
-        active: true
-      },
-      {
-        text: 'Reports',
-        href: '#2'
-      }
-    ]
-  }) }}
--->
 {% endblock %}
 
 {% block content %}
@@ -70,7 +51,7 @@
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-l">
-      Facilities
+      Facilities requiring updates
     </h1>
 
     <table class="govuk-table" data-module="moj-sortable-table">
@@ -78,7 +59,7 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header" aria-sort="ascending">Exporter</th>
-          <th scope="col" class="govuk-table__header" aria-sort="none">UKEF reference</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">UKEF facility ID</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Product</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Last updated</th>
@@ -88,15 +69,24 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
 
-          <td class="govuk-table__cell">COMPRESSORS LTD</td>
-          <td class="govuk-table__cell"><a href="/facility1">00200013718</a></td>
+          <td class="govuk-table__cell">{{ data['facility-1-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility1">{{ data['facility-1-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
-          <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+          
+          {% if 'yes' in data['facility-1-updated'] %}
+          <!-- updated view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
+            <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+          {% else %}
+          <!-- default view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+            <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          {% endif %}
+          
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PETROLEUM LTD</td>
-          <td class="govuk-table__cell"><a href="/facility2">00200014139</a></td>
+          <td class="govuk-table__cell">{{ data['facility-2-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility2">{{ data['facility-2-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
 
           {% if 'yes' in data['facility-2-updated'] %}
@@ -111,18 +101,32 @@
 
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PHARAMACUETICALS LTD</td>
-          <td class="govuk-table__cell"><a href="facility-1">00200014674</a></td>
+          <td class="govuk-table__cell">{{ data['facility-3-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility3">{{ data['facility-3-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
-          <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          {% if 'yes' in data['facility-3-updated'] %}
+          <!-- updated view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
+            <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+          {% else %}
+          <!-- default view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+            <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          {% endif %}
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">XYZ MOTORS LTD</td>
-          <td class="govuk-table__cell"><a href="#">00200014998</a></td>
+          <td class="govuk-table__cell">{{ data['facility-4-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility4">{{ data['facility-4-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
-          <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          {% if 'yes' in data['facility-4-updated'] %}
+          <!-- updated view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
+            <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+          {% else %}
+          <!-- default view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+            <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          {% endif %}
         </tr>
       </tbody>
     </table>
@@ -130,10 +134,16 @@
   </div>
 </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
+{% if (data['facility-1-updated'] == 'yes') and (data['facility-2-updated'] == 'yes') and (data['facility-3-updated'] == 'yes') and (data['facility-4-updated'] == 'yes')  %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukButton({
+          text: "Finished - calculate fees due",
+          href: "finished"
+        }) }}
+    </div>
   </div>
-</div>
+{% else %}
+{% endif %}
 
 {% endblock %}

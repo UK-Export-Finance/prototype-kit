@@ -43,25 +43,6 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
-
-  <!--{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
-
-  {{ mojPrimaryNavigation({
-    label: 'Primary navigation',
-    items: [
-      {
-        text: 'Home',
-        href: '/facility-list',
-        active: false
-      },
-      {
-        text: 'Reports',
-        href: '#2',
-        active: false
-      }
-    ]
-  }) }}
--->
 {% endblock %}
 
 {% block content %}
@@ -69,12 +50,13 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+    <span class="govuk-caption-l">Updating {{ data['facility-2-ref'] }}</span>
     <h1 class="govuk-heading-l">
-        UKEF's guarantee fees accrued for the quarter
+      Outstanding accrual at reporting date
     </h1>
 
     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
-      Current fees accrued
+      Current accruel
     </h2>
     <p class="govuk-body">{{ data['facility-2-accrued'] }} GBP</p>
     
@@ -84,11 +66,11 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-2-accrued",
         name: "facility-2-accrued",
         label: {
-          text: "New fees accrued",
+          text: "New accrual",
           classes: "govuk-label--s",
           isPageHeading: true
         },
-        suffix: {
+        prefix: {
           text: "GBP"
         },
         classes: "govuk-input--width-10",

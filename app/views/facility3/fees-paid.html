@@ -50,7 +50,7 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <span class="govuk-caption-l">Updating {{ data['facility-2-ref'] }}</span>
+    <span class="govuk-caption-l">Updating {{ data['facility-3-ref'] }}</span>
     <h1 class="govuk-heading-l">
       Fees paid to UKEF since last report submitted
     </h1>
@@ -58,12 +58,12 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
         Current fees paid
     </h2>
-      <p class="govuk-body">GBP {{ data['facility-2-paid'] }}</p>
+      <p class="govuk-body">GBP {{ data['facility-3-paid'] }}</p>
       <form class="form" action="index" method="post">
 
         {{ govukInput({
-            id: "facility-2-paid",
-            name: "facility-2-paid",
+            id: "facility-3-paid",
+            name: "facility-3-paid",
             label: {
               text: "New fees paid",
               classes: "govuk-label--s",
