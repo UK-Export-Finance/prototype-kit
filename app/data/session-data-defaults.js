@@ -4,8 +4,8 @@ module.exports = {
   
   // Dates
   '1-month-ago': '28 Feb 2023',
-  'todays-date': '29 Mar 2023',
-  'todays-date-full': '29 March 2023',
+  'todays-date': '30 Mar 2023',
+  'todays-date-full': '30 March 2023',
   'tomorrow': '28 Mar 2023',
   
   // FACILITY 1 VALUES
@@ -43,4 +43,18 @@ module.exports = {
   'facility-4-exposure': '40,000.00',
   'facility-4-accrued': '84.54',
   'facility-4-paid': '56.24',
+
+  // FACILITY 5 VALUES
+  'facility-5-updated': 'no',
+  'facility-5-name': 'A1 MANIFOLDS LTD',
+  'facility-5-ref': '0020001507',
+  'facility-5-utilisation': '1,900,000.00',
+  'facility-5-exposure': '1,520,000.00',
+  'facility-5-accrued': '1,589.23',
+  'facility-5-paid': '1,724.36',
+
+  'facility-5new-utilisation': '',
+  'facility-5new-exposure': '',
+  'facility-5new-accrued': '',
+  'facility-5new-paid': '',
 }

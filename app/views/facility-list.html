@@ -51,15 +51,15 @@
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-l">
-      Facilities that require updating
+      Facilities to update
     </h1>
 
     <table class="govuk-table" data-module="moj-sortable-table">
 
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header" aria-sort="ascending">Exporter</th>
-          <th scope="col" class="govuk-table__header" aria-sort="none">UKEF facility ID</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Exporter</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">UKEF facility ID</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Product</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Last updated</th>
@@ -119,6 +119,20 @@
           <td class="govuk-table__cell"><a href="/facility4">{{ data['facility-4-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
           {% if 'yes' in data['facility-4-updated'] %}
+          <!-- updated view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
+            <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+          {% else %}
+          <!-- default view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+            <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          {% endif %}
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['facility-5-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility5">{{ data['facility-5-ref'] }}</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          {% if 'yes' in data['facility-5-updated'] %}
           <!-- updated view -->
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Updated</strong></td>
             <td class="govuk-table__cell">{{ data['todays-date'] }}</td>

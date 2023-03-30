@@ -1,0 +1,133 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+Update facility – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "/index",
+    serviceName: "Manage an export facility",
+    serviceUrl: "/facility-list",
+    navigation: [
+      {
+        href: "#",
+        text: "John Smith",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }} 
+  
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span class="govuk-caption-l">Updating {{ data['facility-1-ref'] }}</span>
+    <h1 class="govuk-heading-xl">
+        Update facility
+    </h1>
+
+    {{ govukInput({
+        id: "cost",
+        name: "cost",
+        label: {
+          text: "Bank facility utilisation",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "cost",
+        name: "cost",
+        label: {
+          text: "UKEF's current exposure",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "cost",
+        name: "cost",
+        label: {
+          text: "Fees paid to UKEF since last report submitted",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "cost",
+        name: "cost",
+        label: {
+          text: "Outstanding accrual at reporting date",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue",
+          href: "index"
+        }) }}
+      
+        <a class="govuk-link" href="facility-1">Cancel</a>
+      </div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

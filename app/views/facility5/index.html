@@ -1,0 +1,508 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+Facility – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader({
+    homepageUrl: "/index",
+    serviceName: "Manage an export facility",
+    serviceUrl: "/facility-list",
+    navigation: [
+      {
+        href: "#",
+        text: "John Smith",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }} 
+  
+{% endblock %}
+
+{% block pageScripts  %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "facility-list"
+  }) }}-->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-l">General Export Facility</span>
+    <h1 class="govuk-heading-xl">
+      {{ data['facility-5-name'] }}
+    </h1>
+
+    <h2 class="govuk-heading-l">Overview</h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          UKEF facility ID
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+          {{ data['facility-5-ref'] }}
+        </dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+        </dd>
+      </div>
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Bank facility reference
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+          RST-88778
+        </dd>
+        <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Product type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Contingent
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Facility description
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Guarantees
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Facility base currency
+        </dt>
+        <dd class="govuk-summary-list__value">
+          GBP
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Cover end date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          23 Jul 2025
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          1 year probability of default (reported semi-annually)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Reported in July
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Flag: 90 days still no utilisation (from date of facility letter)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <strong class="govuk-tag">Facility utilised</strong>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      </dl>
+
+
+      <h2 class="govuk-heading-l">Value and exposure</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Bank facility limit
+          </dt>
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            GBP 2,500,000.00
+          </dd>
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            UKEF cover
+          </dt>
+          <dd class="govuk-summary-list__value">
+            80%
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            UKEF's maximum exposure
+          </dt>
+          <dd class="govuk-summary-list__value">
+            GBP 2,000,000.00 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+      </dl> 
+
+      <!-- Displayed by default with data from previous report-->
+      <h2 class="govuk-heading-l">Last reported utilisation and fees</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Date of last report
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              {{ data['1-month-ago'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Bank facility utilisation
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              GBP {{ data['facility-5-utilisation'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              UKEF's exposure
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GBP {{ data['facility-5-exposure'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Fees paid to UKEF since previous report submitted
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GBP {{ data['facility-5-paid'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Outstanding accrual at reporting date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GBP {{ data['facility-5-accrued'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+        </dl>
+
+
+        <!-- Show blank fields to be updated will latest data -->
+        {% if 'no' in data['facility-5-updated'] %}
+
+        <h2 class="govuk-heading-l">Update utilisation and fees</h2>
+
+        {% set labelHtml %} 
+        Fees paid to UKEF since last report submitted ({{ data['1-month-ago'] }})
+        {% endset %}
+
+        {{ govukInput({
+        id: "facility-5new-utilisation",
+        name: "facility-5new-utilisation",
+        label: {
+          text: "Bank facility current utilisation",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "facility-5new-exposure",
+        name: "facility-5new-exposure",
+        label: {
+          text: "UKEF's current exposure",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "facility-5new-accrued",
+        name: "facility-5new-accrued",
+        label: {
+          html: labelHtml,
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "facility-5-paid",
+        name: "facility-5-paid",
+        label: {
+          text: "Outstanding accrual",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      <form action="/facility-list" method="post" novalidate>
+        <input type="hidden" name="facility-5-updated" value="yes">
+  
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+          <a class="govuk-link govuk-link--no-visited-state" href="/facility-list">Cancel</a>
+        </div>
+      </form>
+      
+      <!-- Show once updates have been saved - summary list view -->
+
+      {% elseif 'yes' in data['facility-5-updated'] %}
+
+      <h2 class="govuk-heading-l">Updated utilisation and fees</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Date of update
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              {{ data['todays-date'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Bank facility utilisation
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              GBP {{ data['facility-5new-utilisation'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              UKEF's exposure
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GBP {{ data['facility-5new-exposure'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Fees paid to UKEF since previous report submitted
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GBP {{ data['facility-5new-paid'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Outstanding accrual at reporting date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GBP {{ data['facility-5new-accrued'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+        </dl>
+
+        <form action="/facility5/index" method="post" novalidate>
+          <input type="hidden" name="facility-5-updated" value="edit">
+            {{ govukButton({
+              text: "Make changes"
+            }) }}
+        </form>
+
+        <!-- Show when changes want to be made to entered amounts
+            text fields with already entered values -->
+
+        {% elseif 'edit' in data['facility-5-updated'] %}
+
+
+        <h2 class="govuk-heading-l">Update utilisation and fees</h2>
+
+        {% set labelHtml %} 
+        Fees paid to UKEF since last report submitted ({{ data['1-month-ago'] }})
+        {% endset %}
+
+        {{ govukInput({
+        id: "facility-5new-utilisation",
+        name: "facility-5new-utilisation",
+        label: {
+          text: "Bank facility current utilisation",
+          classes: "govuk-label--s"
+        },
+        prefix: {
+          text: "GBP"
+        },
+        value: data['facility-5new-utilisation'],
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "facility-5new-exposure",
+        name: "facility-5new-exposure",
+        label: {
+          text: "UKEF's current exposure",
+          classes: "govuk-label--s"
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        value: data['facility-5new-exposure'],
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "facility-5new-accrued",
+        name: "facility-5new-accrued",
+        label: {
+          html: labelHtml,
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
+        id: "facility-5-paid",
+        name: "facility-5-paid",
+        label: {
+          text: "Outstanding accrual",
+          classes: "govuk-label--s",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      <form action="/facility-list" method="post" novalidate>
+        <input type="hidden" name="facility-5-updated" value="yes">
+  
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+          <a class="govuk-link govuk-link--no-visited-state" href="/facility-list">Cancel</a>
+        </div>
+      </form>
+
+
+        {% endif %}
+      
+  </div>
+</div>
+
+
+<!--<form action="/facility-list" method="post" novalidate>
+  <input type="hidden" name="facility-5-updated" value="yes">
+    {{ govukButton({
+      text: "Update facility",
+      value: data['facility-5-updated']
+    }) }}
+</form>-->
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
