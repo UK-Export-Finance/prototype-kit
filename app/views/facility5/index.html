@@ -26,13 +26,23 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-l">General Export Facility</span>
+    <!--<span class="govuk-caption-l">General Export Facility</span>-->
     <h1 class="govuk-heading-xl">
-      {{ data['facility-5-name'] }}
+      Update facility
     </h1>
-
     <h2 class="govuk-heading-l">Overview</h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Exporter
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+          {{ data['facility-5-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+        </dd>
+      </div>
       
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
