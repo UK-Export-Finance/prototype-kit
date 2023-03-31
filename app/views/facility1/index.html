@@ -5,44 +5,16 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-    homepageUrl: "/index",
-    serviceName: "Manage an export facility",
-    serviceUrl: "/facility-list",
-    navigation: [
-      {
-        href: "#",
-        text: "John Smith",
-        active: true
-      },
-      {
-        href: "#",
-        text: "Profile"
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }} 
-  
+  {% include "includes/head.html" %}
 {% endblock %}
 
-{% block pageScripts  %}
-  <script type="text/javascript">
-    var $element = document.querySelector('#step-by-step-navigation')
-    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
-  </script>
+{% block pageScripts %}
+  {% include "includes/scripts.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukPhaseBanner({
-    tag: {
-      text: "alpha"
-    },
-    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
+  {% include "includes/phase-banner.html" %}
+
 
   {{ govukBackLink({
     text: "Back",

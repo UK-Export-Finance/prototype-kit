@@ -1,7 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
 
 {% block pageTitle %}
-Facility – {{ serviceName }} – GOV.UK Prototype Kit
+Index2 – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -16,10 +16,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
   {% include "includes/phase-banner.html" %}
 
 
-  {{ govukBackLink({
+  <!-- {{ govukBackLink({
     text: "Back",
     href: "facility-list"
-  }) }}
+  }) }}-->
 {% endblock %}
 
 {% block content %}
@@ -161,10 +161,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         </div>
       </dl> 
 
-      {% if 'no' in data['facility-5-updated'] %}
-      <!-- Displayed at the start with data from previous report
-      Last reported and the empty form-->      
-
+      <!-- Displayed by default with data from previous report-->
       <h2 class="govuk-heading-l">Last reported utilisation and fees</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -224,12 +221,14 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
         </dl>
 
-        <!-- Showing blank fields to be updated will latest data -->
+
+        <!-- Show blank fields to be updated will latest data -->
+        {% if 'no' in data['facility-5-updated'] %}
 
         <form action="/facility-list" method="post" novalidate>
           <input type="hidden" name="facility-5-updated" value="yes">
 
-        <h2 class="govuk-heading-l">Update the utilisation and fees</h2>
+        <h2 class="govuk-heading-l">Update utilisation and fees</h2>
 
         {% set labelHtml %} 
         Fees paid to UKEF since last report submitted ({{ data['1-month-ago'] }})
@@ -295,6 +294,8 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         spellcheck: false
       }) }}
 
+      
+  
         <div class="govuk-button-group">
           {{ govukButton({
             text: "Save and continue"
@@ -307,7 +308,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
       {% elseif 'yes' in data['facility-5-updated'] %}
 
-      <form action="/facility5/index#update" method="post" novalidate>
+      <form action="/facility5/index" method="post" novalidate>
         <input type="hidden" name="facility-5-updated" value="edit">
 
       <h2 class="govuk-heading-l">Updated utilisation and fees</h2>
@@ -369,23 +370,25 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
         </dl>
 
+        <h3 class="govuk-heading-m">Updates have been saved</h3>
         <p class="govuk-body">You can make changes before the report is submitted to UKEF.</p>
         
             {{ govukButton({
-              text: "Make changes",
-              classes: "govuk-button--secondary"
+              text: "Make changes"
             }) }}
         </form>
 
         <!-- Show when changes want to be made to entered amounts
             text fields with already entered values -->
 
-        {% elseif 'edit' in data['facility-5-updated'] %}
+        {% endif %}
         
+        <div id="enter-other-names-group" class="js-hidden">
+
         <form action="/facility-list" method="post" novalidate>
           <input type="hidden" name="facility-5-updated" value="yes">
 
-        <h2 class="govuk-heading-l" id="update">Update the utilisation and fees</h2>
+        <h2 class="govuk-heading-l">Update utilisation and fees</h2>
 
         {% set labelHtml %} 
           Fees paid to UKEF since last report submitted ({{ data['1-month-ago'] }})
@@ -460,8 +463,78 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           <a class="govuk-link govuk-link--no-visited-state" href="/facility-list">Cancel</a>
         </div>
     
-        {% endif %}
+        
       </form>
+
+      <form action="how-will-you-arrive" method="POST"  autocomplete="off" novalidate="true" spellcheck="false">
+
+        <div id="have-other-nationalities-group" class="form-group form-group">
+          <div role="" aria-required="true">
+            <legend class='form-label-bold'>
+              <span><span lang="en">Do you currently have any other nationalities?</span><span lang="ar">هل تحمل أي جنسيات أخرى؟</span></span>
+            </legend>
+            <div class="multiple-choice" data-target="other-nationalities-group">
+              <input type="radio" name="have-other-nationalities" id="have-other-nationalities-Yes" value="" required="true">
+              <label for="have-other-nationalities-Yes">
+                <span lang="en">Yes</span><span lang="ar">نعم</span>
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input type="radio" name="have-other-nationalities" id="have-other-nationalities-No" value="No" required="true">
+              <label for="have-other-nationalities-No">
+                <span lang="en">No</span><span lang="ar">لا</span>
+              </label>
+            </div>
+          </div>
+        </div>
+  
+        <div id="other-nationalities-group" class="form-group panel-indent narrow js-hidden">
+          <label for="other-nationalities" class="form-label-bold">
+            <span lang="en">Enter the other nationalities that you hold.</span><span lang="ar">أدخل الجنسيات الأخرى التي تحملها.</span>
+            <span id="other-nationalities-hint" class="form-hint"><span lang="en">For example, 'Canadian, Italian'</span><span lang="ar">على سبيل المثال، الكندية أو الإيطالية</span></span>
+          </label>
+          <input type="text" name="other-nationalities" id="other-nationalities" class="form-control" aria-required="true" maxlength="100" aria-describedby="other-nationalities-hint">
+        </div>
+  
+        <div id="had-previous-nationalities-group" class="form-group form-group">
+          <div role="" aria-required="true">
+            <legend class='form-label-bold'>
+              <span><span lang="en">Have you had any other nationalities in the past?</span><span lang="ar">هل حملت أي جنسيات أخرى سابقا؟</span></span>
+            </legend>
+            <div class="multiple-choice" data-target="enter-other-names-group">
+              <input type="radio" name="had-previous-nationalities" value="" required="true">
+              <label for="had-previous-nationalities-Yes">
+                <span lang="en">Yes</span><span lang="ar">نعم</span>
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input type="radio" name="had-previous-nationalities" id="had-previous-nationalities-No" value="No" required="true">
+              <label for="had-previous-nationalities-No">
+                <span lang="en">No</span><span lang="ar">لا</span>
+              </label>
+            </div>
+          </div>
+        </div>
+  
+        <div id="enter-other-names-group" class="form-group  panel-indent narrow js-hidden">
+          <label for="previous-nationalities" class="form-label-bold">
+            <span lang="en">Enter all the nationalities you had previously.</span><span lang="ar">أدخل كل الجنسيات التي حملتها سابقا،</span>
+            <span id="previous-nationalities-hint" class="form-hint"><span lang="en">For example, 'British'</span><span lang="ar">مثلا، بريطانية</span></span>
+          </label>
+          <input
+            type="text"
+            name="previous-nationalities"
+            id="previous-nationalities"
+            class="form-control"
+            aria-required="true"
+            maxlength="100"
+            aria-describedby="previous-nationalities-hint">
+        </div>
+        <button class="button" id="continue"><span lang="en">Continue</span><span lang="ar">استمر</span></button>
+      </form>
+
+    </div>
+
   </div>
 </div>
 

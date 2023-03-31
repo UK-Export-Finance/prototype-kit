@@ -5,44 +5,15 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader({
-    homepageUrl: "/index",
-    serviceName: "Manage an export facility",
-    serviceUrl: "/facility-list",
-    navigation: [
-      {
-        href: "#",
-        text: "John Smith",
-        active: true
-      },
-      {
-        href: "#",
-        text: "Profile"
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }} 
-  
+  {% include "includes/head.html" %}
 {% endblock %}
 
-{% block pageScripts  %}
-  <script type="text/javascript">
-    var $element = document.querySelector('#step-by-step-navigation')
-    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
-  </script>
+{% block pageScripts %}
+  {% include "includes/scripts.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukPhaseBanner({
-    tag: {
-      text: "alpha"
-    },
-    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
+  {% include "includes/phase-banner.html" %}
 
   {{ govukBackLink({
     text: "Back",
@@ -188,8 +159,28 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </dd>
         </div>
       </dl> 
+     
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <h2 class="govuk-heading-l">Utilisation and fees</h2>
+        </div>
+        <div class="govuk-grid-column-one-half govuk-!-padding-left-0">
+          {% if (data['facility-4-utilisation-updated'] == 'yes') and (data['facility-4-accrued-updated'] == 'yes') and (data['facility-4-accrued-updated'] == 'yes') and (data['facility-4-paid-updated'] == 'yes') and (data['facility-4-exposure-updated'] == 'yes')  %}
+          {{ govukTag({
+            text: "Completed",
+            classes: "govuk-tag--green"
+          }) }}
+          {% else %}
+          {{ govukTag({
+            text: "To do"
+          }) }}
+          {% endif %}
+        </div>
+      </div>
 
-    <h2 class="govuk-heading-l">Utilisation and fees</h2>
+    
+
+
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
@@ -245,19 +236,19 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
     </dl>
 
+    <h2 class="govuk-heading-l">Add updates to UKEF report</h2>
+    {% if (data['facility-4-accrued-updated'] == 'yes') and (data['facility-4-utilisation-updated'] == 'yes') and (data['facility-4-paid-updated'] == 'yes') and (data['facility-4-exposure-updated'] == 'yes')  %}
     <form action="/facility-list" method="post" novalidate>
       <input type="hidden" name="facility-4-updated" value="yes">
-
       {{ govukButton({
-        text: "Facility updates completed",
+        text: "Add updates",
         value: data['facility-4-updated']
       }) }}
-
     </form>
-
-    
-
-
+    {% else %}
+    <p class="govuk-body">You must complete all the updates first.</p>
+    {% endif %}
+  
   </div>
 </div>
 

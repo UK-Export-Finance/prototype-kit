@@ -4,7 +4,7 @@ module.exports = {
   
   // Dates
   '1-month-ago': '28 Feb 2023',
-  'todays-date': '30 Mar 2023',
+  'todays-date': '31 Mar 2023',
   'todays-date-full': '30 March 2023',
   'tomorrow': '28 Mar 2023',
   
@@ -55,6 +55,7 @@ module.exports = {
 
   'facility-5new-utilisation': '',
   'facility-5new-exposure': '',
-  'facility-5new-accrued': '',
   'facility-5new-paid': '',
+  'facility-5new-accrued': '',
+
 }
