@@ -28,9 +28,12 @@
         <h1 class="govuk-heading-l">Facilities to update</h1>
       </div>
       <div class="govuk-grid-column-one-half govuk-!-text-align-right">
-        {% if (data['facility-4-updated'] == 'yes') and (data['facility-5-updated'] == 'yes')  %}
+        {% if (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'yes') or 
+        (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'edit') or 
+        (data['facility-5-updated'] == 'edit') and (data['facility-6-updated'] == 'yes') or 
+        (data['facility-5-updated'] == 'edit') and (data['facility-6-updated'] == 'edit') %}
         {{ govukButton({
-          text: "Updates complete – submit to UKEF",
+          text: "Updates complete – submit report to UKEF",
           href: "finished"
         }) }}
         {% else %}
@@ -38,7 +41,10 @@
       </div>
     </div>
 
-    {% if (data['facility-4-updated'] == 'yes') and (data['facility-5-updated'] == 'yes')  %}
+    {% if (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'yes') or 
+        (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'edit') or 
+        (data['facility-5-updated'] == 'edit') and (data['facility-6-updated'] == 'yes') or 
+        (data['facility-5-updated'] == 'edit') and (data['facility-6-updated'] == 'edit') %}
     {% else %}
     <p class="govuk-body">All facilities must be updated before they can be submitted to UKEF.</p>
     {% endif %}
@@ -57,12 +63,11 @@
       </thead>
     
       <tbody class="govuk-table__body">
-        
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ data['facility-4-name'] }}</td>
-          <td class="govuk-table__cell"><a href="/facility4">{{ data['facility-4-ref'] }}</a></td>
+          <td class="govuk-table__cell">{{ data['facility-5-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility5">{{ data['facility-5-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
-          {% if 'yes' in data['facility-4-updated'] %}
+          {%  if (data['facility-5-updated'] == 'yes') or (data['facility-5-updated'] == 'edit')   %}
           <!-- updated view -->
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
             <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
@@ -72,11 +77,13 @@
             <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
           {% endif %}
         </tr>
+
+
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ data['facility-5-name'] }}</td>
-          <td class="govuk-table__cell"><a href="/facility5">{{ data['facility-5-ref'] }}</a></td>
+          <td class="govuk-table__cell">{{ data['facility-6-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility6">{{ data['facility-6-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
-          {% if 'yes' in data['facility-5-updated'] %}
+          {%  if (data['facility-6-updated'] == 'yes') or (data['facility-6-updated'] == 'edit')   %}
           <!-- updated view -->
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
             <td class="govuk-table__cell">{{ data['todays-date'] }}</td>

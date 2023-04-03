@@ -3,10 +3,10 @@ module.exports = {
   // Insert values here
   
   // Dates
-  '1-month-ago': '28 Feb 2023',
-  'todays-date': '31 Mar 2023',
-  'todays-date-full': '30 March 2023',
-  'tomorrow': '28 Mar 2023',
+  '1-month-ago': '4 Mar 2023',
+  'todays-date': '4 Apr 2023',
+  'todays-date-full': '4 April 2023',
+  'tomorrow': '5 Apr 2023',
   
   // FACILITY 1 VALUES
   'facility-1-updated': '',
@@ -57,5 +57,19 @@ module.exports = {
   'facility-5new-exposure': '',
   'facility-5new-paid': '',
   'facility-5new-accrued': '',
+
+// FACILITY 6 VALUES
+'facility-6-updated': 'no',
+'facility-6-name': 'XYZ PHARAMACUETICALS LTD',
+'facility-6-ref': '0020001467',
+'facility-6-utilisation': '790,000.00',
+'facility-6-exposure': '632,000.00',
+'facility-6-accrued': '727.46',
+'facility-6-paid': '639.11',
+
+'facility-6new-utilisation': '',
+'facility-6new-exposure': '',
+'facility-6new-paid': '',
+'facility-6new-accrued': '',
 
 }

@@ -8,9 +8,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
   {% include "includes/head.html" %}
 {% endblock %}
 
-{% block pageScripts %}
-  {% include "includes/scripts.html" %}
-{% endblock %}
+
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
@@ -25,7 +23,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-l">{{ data['facility-4-name'] }}</span>
+    <span class="govuk-caption-l">UKEF facility ID {{ data['facility-4-ref'] }}</span>
     <h1 class="govuk-heading-xl">
       Update facility
     </h1>
@@ -173,7 +171,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
      
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-half">
-          <h2 class="govuk-heading-l">Utilisation and fees</h2>
+          <h2 class="govuk-heading-l" id="Utilisation-and-fees">Utilisation and fees</h2>
         </div>
         <div class="govuk-grid-column-one-half govuk-!-padding-left-0">
           {% if (data['facility-4-utilisation-updated'] == 'yes') and (data['facility-4-accrued-updated'] == 'yes') and (data['facility-4-accrued-updated'] == 'yes') and (data['facility-4-paid-updated'] == 'yes') and (data['facility-4-exposure-updated'] == 'yes')  %}
