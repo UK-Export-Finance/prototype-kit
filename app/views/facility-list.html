@@ -33,7 +33,7 @@
         (data['facility-5-updated'] == 'edit') and (data['facility-6-updated'] == 'yes') or 
         (data['facility-5-updated'] == 'edit') and (data['facility-6-updated'] == 'edit') %}
         {{ govukButton({
-          text: "Updates complete – submit report to UKEF",
+          text: "Submit report to UKEF",
           href: "finished"
         }) }}
         {% else %}
@@ -55,7 +55,7 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header" aria-sort="none">Exporter</th>
-          <th scope="col" class="govuk-table__header" aria-sort="ascending">UKEF facility ID</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">Bank reference</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Product</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Last updated</th>
@@ -73,7 +73,7 @@
             <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
           {% else %}
           <!-- default view -->
-            <td class="govuk-table__cell"><strong class="govuk-tag">To do</strong></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
             <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
           {% endif %}
         </tr>
@@ -89,7 +89,7 @@
             <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
           {% else %}
           <!-- default view -->
-            <td class="govuk-table__cell"><strong class="govuk-tag">To do</strong></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
             <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
           {% endif %}
         </tr>

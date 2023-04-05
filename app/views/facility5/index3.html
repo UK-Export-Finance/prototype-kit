@@ -49,7 +49,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           UKEF facility ID
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-          {{ data['facility-5-ref'] }}
+          {{ data['facility-5-ukef-id'] }}
         </dd>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
         </dd>
@@ -234,7 +234,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
         </dl>
 
-        <!-- Showing blank fields to be updated with latest data -->
+        <!-- Showing blank fields to be updated will latest data -->
 
         <form action="/facility-list" method="post" novalidate>
           <input type="hidden" name="facility-5-updated" value="yes">
@@ -261,10 +261,25 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       }) }}
 
       {{ govukInput({
+        id: "facility-5new-exposure",
+        name: "facility-5new-exposure",
+        label: {
+          text: "UKEF's current exposure",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
         id: "facility-5new-paid",
         name: "facility-5new-paid",
         label: {
-          text: "Premium payable to UKEF",
+          html: labelHtml,
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -279,7 +294,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-5new-accrued",
         name: "facility-5new-accrued",
         label: {
-          text: "Premium accrued",
+          text: "Outstanding accrual",
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -311,16 +326,22 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
             <dt class="govuk-summary-list__key govuk-!-width-one-half">
               Date of update
             </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-half">
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
               {{ data['todays-date'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+              
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
               Bank facility utilisation
             </dt>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
               GBP {{ data['facility-5new-utilisation'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+              
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -330,21 +351,30 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5new-exposure'] }}
             </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Premium payable to UKEF
-            </dt>
-            <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5new-paid'] }} 
+            <dd class="govuk-summary-list__actions">
+              
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Premium accrued
+              Fees paid to UKEF since previous report submitted
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GBP {{ data['facility-5new-paid'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Outstanding accrual at reporting date
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5new-accrued'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              
             </dd>
           </div>
         </dl>
@@ -387,10 +417,25 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       }) }}
 
       {{ govukInput({
+        id: "facility-5new-exposure",
+        name: "facility-5new-exposure",
+        label: {
+          text: "UKEF's current exposure",
+          classes: "govuk-label--s"
+        },
+        prefix: {
+          text: "GBP"
+        },
+        classes: "govuk-input--width-10",
+        value: data['facility-5new-exposure'],
+        spellcheck: false
+      }) }}
+
+      {{ govukInput({
         id: "facility-5new-paid",
         name: "facility-5new-paid",
         label: {
-          text: "Premium payable to UKEF",
+          html: labelHtml,
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -406,7 +451,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-5new-accrued",
         name: "facility-5new-accrued",
         label: {
-          text: "Premium accrual",
+          text: "Outstanding accrual",
           classes: "govuk-label--s",
           isPageHeading: false
         },
