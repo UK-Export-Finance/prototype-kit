@@ -208,7 +208,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       <!-- Display the empty form-->
         <!-- Showing blank fields to be updated with latest data -->
 
-        <form action="/facility-list" method="post" novalidate>
+        <form action="/facility5/index#updated" method="post" novalidate>
           <input type="hidden" name="facility-5-updated" value="yes">
 
         <h2 class="govuk-heading-l">Update utilisation and premium</h2>
@@ -267,7 +267,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Save and continue"
+            text: "Save"
           }) }}
           <a class="govuk-link govuk-link--no-visited-state" href="/facility-list">Cancel</a>
         </div>
@@ -277,14 +277,12 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
       {% elseif 'yes' in data['facility-5-updated'] %}
 
-
-      <!--<form action="/facility5/index#update" method="post" novalidate>
+      <form action="/facility5/index#update" method="post" novalidate>
         <input type="hidden" name="facility-5-updated" value="edit">
 
       <h2 class="govuk-heading-l" id="updated">Updated utilisation and premium</h2>
-      <p class="govuk-body">You can make changes to the updates up until report is submitted to UKEF.</p>-->
-        
-      <!--<dl class="govuk-summary-list">
+      <p class="govuk-body">You can make changes to the updates up until report is submitted to UKEF.</p>
+        <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half">
               Report up to
@@ -313,7 +311,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               GBP {{ data['facility-5new-utilisation'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/facility5/utilisation">
+              <a class="govuk-link" href="utilisation">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
@@ -336,7 +334,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               GBP {{ data['facility-5new-paid'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/facility5/premium-payable">
+              <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
@@ -349,81 +347,14 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               GBP {{ data['facility-5new-accrued'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/facility5/premium-accrued">
+              <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
           </div>
         </dl>
 
-        </form>-->
-
-        <!-- With make changes the 3 fields on one screen -->
-        
-        <form action="/facility5/index#update" method="post" novalidate>
-          <input type="hidden" name="facility-5-updated" value="edit">
-
-        <h2 class="govuk-heading-l">Updated utilisation and premium</h2>
-          
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half">
-              Report up to
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-half">
-              {{ data['end-current-month'] }}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half">
-             Facility updated
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-width-one-half">
-              {{ data['todays-date'] }}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Bank facility utilisation
-            </dt>
-            <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5new-utilisation'] }}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              UKEF's exposure
-            </dt>
-            <dd class="govuk-summary-list__value">
-              GBP  {{ data['facility-5new-utilisation'] * 0.8  }}     
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Premium payable to UKEF
-            </dt>
-            <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5new-paid'] }} 
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Premium accrued
-            </dt>
-            <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5new-accrued'] }} 
-            </dd>
-          </div>
-        </dl>
-
-        <p class="govuk-body">You can make changes to the updates before the report is submitted to UKEF.</p>
-        
-            {{ govukButton({
-              text: "Make changes",
-              classes: "govuk-button--secondary"
-            }) }}
         </form>
-
 
         <!-- Show when changes want to be made to entered amounts
             text fields with already entered values -->

@@ -3,10 +3,12 @@ module.exports = {
   // Insert values here
   
   // Dates
-  '1-month-ago': '6 Mar 2023',
-  'todays-date': '5 Apr 2023',
-  'todays-date-full': '5 April 2023',
-  'tomorrow': '5 Apr 2023',
+  'end-previous-month': '28 February 2023',
+  'end-current-month': '31 March 2023',
+  'report-month': 'March 2023',
+  '1-month-ago': '3 March 2023',
+  'todays-date': '6 April 2023',
+  'todays-date-full': '6 April 2023',
   
   // FACILITY 1 VALUES
   'facility-1-updated': '',
@@ -53,6 +55,8 @@ module.exports = {
   'facility-5-name': 'A1 Manifolds LTD',
   'facility-5-ukef-id': '0020001507',
   'facility-5-ref': '0378429',
+  'facility-5-limit': '2,500,000.00',
+  'facility-5-cover': '80%',
   'facility-5-utilisation': '1,900,000.00',
   'facility-5-exposure': '1,520,000.00',
   'facility-5-accrued': '1,589.23',
