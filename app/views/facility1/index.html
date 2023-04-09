@@ -165,7 +165,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     {% if 'yes' in data['facility-1-updated'] %}
     <h2 class="govuk-heading-l">Utilisation and premiums &ndash; {{ data['report-month'] }}</h2>
     
-    <p class="govuk-body $govuk-secondary-text-colour">Updated &ndash; {{ data['signed-in-name'] }}, {{ data['todays-date'] }}</p>
+    <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['signed-in-name'] }}, {{ data['todays-date'] }}</p>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
@@ -225,7 +225,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
     <h2 class="govuk-heading-l">Utilisation and premiums &ndash; {{ data['last-month'] }}</h2>
 
-    <p class="govuk-body $govuk-secondary-text-colour">Updated &ndash; {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
+    <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
@@ -274,8 +274,8 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     <!-- Last months report - no chqange links. Always display -->
     <h2 class="govuk-heading-l">Utilisation and premiums &ndash; {{ data['last-month'] }}</h2>
 
-    <p class="govuk-body $govuk-secondary-text-colour">Updated &ndash; {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
-    
+    <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
+
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
