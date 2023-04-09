@@ -60,8 +60,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         </dd>
       </div>
       
-     
-
+  
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Product type
@@ -103,7 +102,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           1 year probability of default (reported semi-annually)
         </dt>
         <dd class="govuk-summary-list__value">
-          Reported in July
+          {{ data['facility-5-prob-default'] }}
         </dd>
       </div>
 
@@ -143,7 +142,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
             UKEF's maximum exposure
           </dt>
           <dd class="govuk-summary-list__value">
-            GBP {{ data['facility-5-limit'] }}
+            GBP {{ data['facility-5-max'] }}
           </dd>
         </div>
       </dl> 

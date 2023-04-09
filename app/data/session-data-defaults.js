@@ -5,20 +5,36 @@ module.exports = {
   // Dates
   'end-previous-month': '28 February 2023',
   'end-current-month': '31 March 2023',
+  'last-month': 'February 2023',
   'report-month': 'March 2023',
   '1-month-ago': '3 March 2023',
   'todays-date': '6 April 2023',
   'todays-date-full': '6 April 2023',
   
+  // Names
+  'signed-in-name': 'John Smith',
+  'last-month-name': 'John Smith',
+
   // FACILITY 1 VALUES
-  'facility-1-updated': '',
-  'facility-1-name': 'COMPRESSORS LTD',
+  'facility-1-updated': 'no',
+  'facility-1-name': 'Compressors LTD',
   'facility-1-ukef-id': '0020001371',
   'facility-1-ref': '0239397',
-  'facility-1-utilisation': '1,900,000.00',
-  'facility-1-exposure': '1,520,000.00',
-  'facility-1-accrued': '1,589.23',
-  'facility-1-paid': '1,724.36',
+  'facility-1-end-date': '16 June 2024',
+  'facility-1-prob-default': 'Reported in June',
+  'facility-1-limit': '600,000.00',
+  'facility-1-cover': '80%',
+  'facility-1-max': '480,000.00',
+
+  'facility-1-utilisation': '400,000.00',
+  'facility-1-exposure': '320,000.00',
+  'facility-1-paid': '1,000.00',
+  'facility-1-accrued': '15,000.00',
+ 
+  'facility-1new-utilisation': '',
+  'facility-1new-exposure': '',
+  'facility-1new-paid': '',
+  'facility-1new-accrued': '',
 
   // FACILITY 2 VALUES
   'facility-2-updated': '',
@@ -55,8 +71,13 @@ module.exports = {
   'facility-5-name': 'A1 Manifolds LTD',
   'facility-5-ukef-id': '0020001507',
   'facility-5-ref': '0378429',
+  'facility-5-end-date': '23 July 2025',
+  'facility-5-prob-default': 'Reported in July',
+
   'facility-5-limit': '2,500,000.00',
   'facility-5-cover': '80%',
+  'facility-5-max': '2,000,000.00',
+
   'facility-5-utilisation': '1,900,000.00',
   'facility-5-exposure': '1,520,000.00',
   'facility-5-accrued': '1,589.23',
