@@ -8,8 +8,8 @@ module.exports = {
   'last-month': 'February 2023',
   'report-month': 'March 2023',
   '1-month-ago': '3 March 2023',
-  'todays-date': '6 April 2023',
-  'todays-date-full': '6 April 2023',
+  'todays-date': '11 April 2023',
+  'todays-date-full': '11 April 2023',
   
   // Names
   'signed-in-name': 'John Smith',

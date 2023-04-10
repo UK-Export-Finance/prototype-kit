@@ -228,7 +228,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-6new-utilisation",
         name: "facility-6new-utilisation",
         label: {
-          text: "Bank facility current utilisation",
+          text: "Bank facility utilisation",
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -239,26 +239,12 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         spellcheck: false
       }) }}
 
-      {{ govukInput({
-        id: "facility-6new-exposure",
-        name: "facility-6new-exposure",
-        label: {
-          text: "UKEF's current exposure",
-          classes: "govuk-label--s",
-          isPageHeading: false
-        },
-        prefix: {
-          text: "GBP"
-        },
-        classes: "govuk-input--width-10",
-        spellcheck: false
-      }) }}
 
       {{ govukInput({
         id: "facility-6new-paid",
         name: "facility-6new-paid",
         label: {
-          html: labelHtml,
+          text: "Premium payable to UKEF",
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -273,7 +259,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-6new-accrued",
         name: "facility-6new-accrued",
         label: {
-          text: "Outstanding accrual",
+          text: "Premium accrued",
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -296,12 +282,12 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
       {% elseif 'yes' in data['facility-6-updated'] %}
 
-      <form action="/facility5/index#update" method="post" novalidate>
+      <form action="/facility6/index#update" method="post" novalidate>
         <input type="hidden" name="facility-6-updated" value="edit">
 
       <h2 class="govuk-heading-l">Updated utilisation and fees</h2>
         <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
+          <!--<div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half">
               Date of update
             </dt>
@@ -311,7 +297,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
             <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
               
             </dd>
-          </div>
+          </div>-->
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half">
               Bank facility utilisation
@@ -325,12 +311,12 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               UKEF's exposure
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-6new-exposure'] }}
+              GBP {{ data['facility-6new-utilisation'] * 0.8  }} 
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Fees paid to UKEF since previous report submitted
+              Premium payable to UKEF
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-6new-paid'] }} 
@@ -338,7 +324,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Outstanding accrual at reporting date
+              Premium accrued
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-6new-accrued'] }} 
@@ -372,7 +358,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-6new-utilisation",
         name: "facility-6new-utilisation",
         label: {
-          text: "Bank facility current utilisation",
+          text: "Bank facility utilisation",
           classes: "govuk-label--s"
         },
         prefix: {
@@ -384,25 +370,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       }) }}
 
       {{ govukInput({
-        id: "facility-6new-exposure",
-        name: "facility-6new-exposure",
-        label: {
-          text: "UKEF's current exposure",
-          classes: "govuk-label--s"
-        },
-        prefix: {
-          text: "GBP"
-        },
-        classes: "govuk-input--width-10",
-        value: data['facility-6new-exposure'],
-        spellcheck: false
-      }) }}
-
-      {{ govukInput({
         id: "facility-6new-paid",
         name: "facility-6new-paid",
         label: {
-          html: labelHtml,
+          text: "Premium payable to UKEF",
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -418,7 +389,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-6new-accrued",
         name: "facility-6new-accrued",
         label: {
-          text: "Outstanding accrual",
+          text: "Premium accrued",
           classes: "govuk-label--s",
           isPageHeading: false
         },
