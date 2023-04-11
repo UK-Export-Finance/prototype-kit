@@ -36,6 +36,10 @@ module.exports = {
   'facility-1new-paid': '',
   'facility-1new-accrued': '',
 
+  'facility-1utiisation-updated': 'no',
+  'facility-1paid-updated': 'no',
+  'facility-1accrued-updated': 'no',
+
   // FACILITY 2 VALUES
   'facility-2-updated': '',
   'facility-2-name': 'PETROLEUM LTD',

@@ -32,9 +32,23 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
     </h2>
     <p class="govuk-body">GBP {{ data['facility-1-utilisation'] }}</p>
 
+    <!-- continue to next screen - payable - as it's the 1st visit to this page -->
+    {% if (data['facility-1utiisation-updated'] == 'no') and (data['facility-1-updated'] == 'no')  %}
     <form class="form" action="payable" method="post">
+    <input type="hidden" name="facility-1utiisation-updated" value="yes">
+    
+    <!-- send to check answers screen as that is where they've just come from -->
+    {% elseif (data['facility-1utiisation-updated'] == 'yes') and (data['facility-1-updated'] == 'no')  %}
+    <form class="form" action="check" method="post">
+      
+      
+    <!-- send to index screen as that is where they've just come from -->
+    {% elseif (data['facility-1utiisation-updated'] == 'yes') and (data['facility-1-updated'] == 'yes')  %}
+    <form class="form" action="index#updated" method="post">
+     
+    {% endif %}
+    
       <div class="govuk-form-group">
-
           <label class="govuk-label govuk-label--m" for="facility-1new-utilisation">
             New utilisation
           </label>
@@ -51,8 +65,21 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
         {{ govukButton({
           text: "Save and continue"
         }) }}
-      
-        <a class="govuk-link govuk-link--no-visited-state" href="index">Cancel</a>
+
+        <!-- cancel - back to index screen as that is where they've just come from -->
+        {% if (data['facility-1utiisation-updated'] == 'no') and (data['facility-1-updated'] == 'no')  %}
+        <a class="govuk-link govuk-link--no-visited-state" href="index#updated">Cancel</a>
+        
+        <!-- cancel - back to check answers screen as that is where they've just come from -->
+        {% elseif (data['facility-1utiisation-updated'] == 'yes') and (data['facility-1-updated'] == 'no')  %}
+        <a class="govuk-link govuk-link--no-visited-state" href="check">Cancel</a>  
+          
+        <!-- cancel - back to index screen as that is where they've just come from -->
+        {% elseif (data['facility-1utiisation-updated'] == 'yes') and (data['facility-1-updated'] == 'yes')  %}
+        <a class="govuk-link govuk-link--no-visited-state" href="index#updated">Cancel</a> 
+        {% endif %}
+
+        
       </div>
     </form>
   </div>

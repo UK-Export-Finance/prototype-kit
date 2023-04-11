@@ -27,7 +27,21 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     </h1>
     <h2 class="govuk-heading-l">Overview</h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+          {%  if (data['facility-5-updated'] == 'yes') %}
+          <!-- updated status view -->
+            <strong class="govuk-tag govuk-tag--green">Update completed</strong>
+          {% else %}
+          <!-- needs updating status view -->
+            <strong class="govuk-tag govuk-tag--red">Update required</strong>
+          {% endif %}
+        </dd>
+      </div>
+
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
           Exporter
@@ -107,7 +121,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Flag: 90 days still no utilisation (from date of facility letter)
         </dt>
         <dd class="govuk-summary-list__value">
-          <strong class="govuk-tag">Utilised</strong>
+          Utilised
         </dd>
       </div>
       </dl>
@@ -196,7 +210,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         <!-- Display the text fields for the latest month-->
 
         <form action="/facility5/check" method="post" novalidate>
-          <input type="hidden" name="facility-5-updated" value="yes">
+          
 
         <h2 class="govuk-heading-l">Update utilisation and premiums</h2>
 
@@ -264,7 +278,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       {% elseif 'yes' in data['facility-5-updated'] %}
 
       <form action="/facility5/index#update" method="post" novalidate>
-        <input type="hidden" name="facility-5-updated" value="edit">
+        
 
         <h2 class="govuk-heading-l" id="updated">Utilisation and premiums &ndash; {{ data['report-month'] }}</h2>
       

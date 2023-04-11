@@ -31,6 +31,21 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+          {%  if (data['facility-1-updated'] == 'yes') %}
+          <!-- updated status view -->
+            <strong class="govuk-tag govuk-tag--green">Update completed</strong>
+          {% else %}
+          <!-- needs updating status view -->
+            <strong class="govuk-tag govuk-tag--red">Update required</strong>
+          {% endif %}
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
           Exporter
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">
@@ -116,7 +131,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Flag: 90 days still no utilisation (from date of facility letter)
         </dt>
         <dd class="govuk-summary-list__value">
-          <strong class="govuk-tag">Utilised</strong>
+          Utilised
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
@@ -163,7 +178,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
     <!-- Display once updated with ability to change-->
     {% if 'yes' in data['facility-1-updated'] %}
-    <h2 class="govuk-heading-l">Utilisation and premiums &ndash; {{ data['report-month'] }}</h2>
+    <h2 class="govuk-heading-l" id="updated">Utilisation and premiums &ndash; {{ data['report-month'] }}</h2>
     
     <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['signed-in-name'] }}, {{ data['todays-date'] }}</p>
 
