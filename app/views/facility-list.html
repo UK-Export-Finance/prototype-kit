@@ -23,14 +23,24 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+    {% if (data['facility-1-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'yes') %}
+    
+    <!-- display the due banner -->
+    {% else %}
+    {{ mojBanner({
+      type: 'information',
+      text: 'March report due by XX April 2023 – all facilities must be updated and then submitted to UKEF.',
+      iconFallbackText: 'information'
+    }) }}
+    {% endif %}
+    
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half">
-        <h1 class="govuk-heading-xl">Facilities</h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Facilities</h1>
       </div>
       <div class="govuk-grid-column-one-half govuk-!-text-align-right">
-        {% if (data['facility-1-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'yes') or 
-        (data['facility-4-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'edit') %}
-        
+        <!-- display submit button when all facilities updayed -->
+        {% if (data['facility-1-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'yes') %}
         {{ govukButton({
           text: "Submit report to UKEF",
           href: "finished"
@@ -39,13 +49,6 @@
         {% endif %}
       </div>
     </div>
-
-    {% if (data['facility-1-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'yes') or 
-        (data['facility-4-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') and (data['facility-6-updated'] == 'edit') %}
-    {% else %}
-    <p class="govuk-body">All facilities must be updated before they can be submitted to UKEF.</p>
-    {% endif %}
-
     
     <table class="govuk-table" data-module="moj-sortable-table">
 

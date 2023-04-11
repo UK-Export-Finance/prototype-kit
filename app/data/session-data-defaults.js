@@ -42,7 +42,7 @@ module.exports = {
 
   // FACILITY 2 VALUES
   'facility-2-updated': '',
-  'facility-2-name': 'PETROLEUM LTD',
+  'facility-2-name': 'Petroleum LTD',
   'facility-2-ukef-id': '0020001413',
   'facility-2-ref': '0374289',
   'facility-2-utilisation': '125,000.00',
@@ -52,7 +52,7 @@ module.exports = {
 
   // FACILITY 3 VALUES
   'facility-3-updated': '',
-  'facility-3-name': 'PHARAMACUETICALS LTD',
+  'facility-3-name': 'Pharmaceuticals LTD',
   'facility-3-ukef-id': '0020001467',
   'facility-3-ref': '0563982',
   'facility-3-utilisation': '790,000.00',
