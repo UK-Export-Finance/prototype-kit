@@ -14,7 +14,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  <a class="govuk-back-link" href="/facility-list">Go back to all faclities</a>
 {% endblock %}
 
 {% block content %}
@@ -69,11 +69,9 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         </dd>
       </div>
       
-     
-
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Product type
+          Product
         </dt>
         <dd class="govuk-summary-list__value">
           General Export Facility
@@ -82,10 +80,19 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
+          Type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Contingent
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
           Facility description
         </dt>
         <dd class="govuk-summary-list__value">
-          Cash
+          Guarantee
         </dd>
       </div>
 
@@ -160,7 +167,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       {% if 'no' in data['facility-5-updated'] %}
       
       <!-- Show the previously reported month-->
-      <h2 class="govuk-heading-l">Utilisation and premiums &ndash; {{ data['last-month'] }}</h2>
+      <h2 class="govuk-heading-l">Utilisation and fees &ndash; {{ data['end-previous-month'] }}</h2>
 
       <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
 
@@ -187,7 +194,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Premium payable to UKEF
+              Fee payable to UKEF
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5-paid'] }} 
@@ -197,7 +204,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Premium accrued
+              Fees accrued
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5-accrued'] }} 
@@ -212,7 +219,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         <form action="/facility5/check" method="post" novalidate>
           
 
-        <h2 class="govuk-heading-l">Update utilisation and premiums</h2>
+        <h2 class="govuk-heading-l">Update utilisation and fees</h2>
 
         <p class="govuk-body">Enter details for the {{ data['report-month'] }} report.</p>
           
@@ -240,7 +247,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-5new-paid",
         name: "facility-5new-paid",
         label: {
-          text: "Premium payable to UKEF",
+          text: "Fee payable to UKEF",
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -255,7 +262,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         id: "facility-5new-accrued",
         name: "facility-5new-accrued",
         label: {
-          text: "Premium accrued",
+          text: "Fees accrued",
           classes: "govuk-label--s",
           isPageHeading: false
         },
@@ -280,7 +287,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       <form action="/facility5/index#update" method="post" novalidate>
         
 
-        <h2 class="govuk-heading-l" id="updated">Utilisation and premiums &ndash; {{ data['report-month'] }}</h2>
+        <h2 class="govuk-heading-l" id="updated">Utilisation and fees &ndash; {{ data['end-current-month'] }}</h2>
       
       <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['signed-in-name'] }}, {{ data['todays-date'] }}</p>
       <dl class="govuk-summary-list">
@@ -309,7 +316,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Premium payable to UKEF
+              Fee payable to UKEF
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5new-paid'] }} 
@@ -322,7 +329,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Premium accrued
+              Fees accrued
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5new-accrued'] }} 
@@ -337,7 +344,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         </form>    
 
         <!-- Show the previously reported month-->
-      <h2 class="govuk-heading-l">Utilisation and premiums &ndash; {{ data['last-month'] }}</h2>
+      <h2 class="govuk-heading-l">Utilisation and fees &ndash; {{ data['end-previous-month'] }}</h2>
 
       <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
 
@@ -364,7 +371,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Premium payable to UKEF
+              Fee payable to UKEF
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5-paid'] }} 
@@ -374,7 +381,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Premium accrued
+              Fee accrued
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5-accrued'] }} 

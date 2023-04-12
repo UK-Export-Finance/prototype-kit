@@ -35,7 +35,7 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
       <span class="govuk-caption-l">Bank reference {{ data['facility-5-ref'] }}</span>
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="facility-5new-accrued">
-            Premium accrued
+            Fees accrued
         </label>
       </h1>
       <div class="govuk-input__wrapper">
@@ -47,13 +47,13 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
         {{ govukButton({
           text: "Save and continue"
         }) }}
-        <!-- send back to check your answers screen -->
+        <!-- send back to check your answers screen 
         {% if 'no' in data['facility-5-updated'] %}
-        <a class="govuk-link govuk-link--no-visited-state" href="check">Cancel</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="check">Cancel</a> -->
         
-        <!-- send back to index screen -->
+        <!-- send back to index screen 
         {% elseif 'yes' in data['facility-5-updated'] %}  
-        <a class="govuk-link govuk-link--no-visited-state" href="index">Cancel</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="index">Cancel</a> -->
         {% endif %}
       </div>
     </form>

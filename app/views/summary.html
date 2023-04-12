@@ -1,0 +1,86 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Finished – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block pageScripts %}
+  {% include "includes/scripts.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  <a class="govuk-back-link" href="/facility-list">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Monthly report summary</h1>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Report month end date
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+          {{ data['end-current-month'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Total fees due to UKEF
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+          GBP {{data['facility-1new-paid'] | float + data['facility-5new-paid'] | float }}
+        </dd>
+      </div>
+      <!--<div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Payment reference
+        </dt>
+        <dd class="govuk-summary-list__value">
+          AB12345
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          SWIFT code
+        </dt>
+        <dd class="govuk-summary-list__value">
+          BANKGB22
+        </dd>
+      </div>-->
+      
+      <!--<div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Today's date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['todays-date-full'] }}
+        </dd>
+      </div>-->
+    </dl>
+
+    <p class="govuk-body">Before submitting the report you can <a href="facility-list">go back</a> and make any changes to the facilities.</p>
+
+    <form action="/confirmation" method="post" novalidate>
+      <input type="hidden" name="report-due" value="no">
+
+      {{ govukButton({
+        text: "Submit report to UKEF",
+        value: data['report-due']
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

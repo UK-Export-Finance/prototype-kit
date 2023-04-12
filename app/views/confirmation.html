@@ -29,7 +29,7 @@
               
               <div class="govuk-panel govuk-panel--confirmation">
                 <h1 class="govuk-panel__title">
-                  Updates submitted to UKEF
+                  Report submitted to UKEF
                 </h1>  
                 <div class="govuk-panel__body">
                   Pay UKEF the amount due
@@ -38,11 +38,11 @@
 
               <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Amount due
+                  <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                    Amount due to UKEF
                   </dt>
-                  <dd class="govuk-summary-list__value">
-                    GBP 2496.56
+                  <dd class="govuk-summary-list__value govuk-!-width-one-half">
+                    GBP {{data['facility-1new-paid'] | float + data['facility-5new-paid'] | float }}
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -63,7 +63,15 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Date
+                    Report month end date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['end-current-month'] }}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Todays date
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['todays-date-full'] }}
@@ -71,17 +79,9 @@
                 </div>
               </dl>
 
-                <p class="govuk-body">
-                    An invoice is available in xxxxx xxxxxx and has been emailed to inbox@thebank.com.
-                </p>
-                <!--{{ govukButton({
-                    text: "Download invoice",
-                    href: "#",
-                    classes: "govuk-button--secondary"
-                }) }}-->
 
                 <p class="govuk-body">
-                    <a href="#" class="govuk-link">Return to all facilities</p></a> 
+                    <a href="facility-list" class="govuk-link">Return to all facilities</p></a> 
                 </p>
             </div>
           </div>

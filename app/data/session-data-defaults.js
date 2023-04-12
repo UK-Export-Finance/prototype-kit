@@ -3,13 +3,15 @@ module.exports = {
   // Insert values here
   
   // Dates
+  'report-due': 'yes',
   'end-previous-month': '28 February 2023',
   'end-current-month': '31 March 2023',
   'last-month': 'February 2023',
   'report-month': 'March 2023',
   '1-month-ago': '3 March 2023',
-  'todays-date': '11 April 2023',
+  'todays-date': '12 April 2023',
   'todays-date-full': '11 April 2023',
+  'next-month-report-due': '10 May 2023',
   
   // Names
   'signed-in-name': 'John Smith',
