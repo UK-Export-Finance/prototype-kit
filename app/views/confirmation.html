@@ -1,7 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
 
 {% block pageTitle %}
-  Finished – {{ serviceName }} – GOV.UK Prototype Kit
+  Report submitted – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -39,10 +39,26 @@
               <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key govuk-!-width-one-half">
-                    Amount due to UKEF
+                    Month-end report date
                   </dt>
                   <dd class="govuk-summary-list__value govuk-!-width-one-half">
+                    {{ data['end-current-month'] }}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Amount payable to UKEF
+                  </dt>
+                  <dd class="govuk-summary-list__value">
                     GBP {{data['facility-1new-paid'] | float + data['facility-5new-paid'] | float }}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Payment due by
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['this-month-report-due'] }}
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -61,25 +77,8 @@
                     BANKGB22
                   </dd>
                 </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Report month end date
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['end-current-month'] }}
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Todays date
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['todays-date-full'] }}
-                  </dd>
-                </div>
+                
               </dl>
-
-
                 <p class="govuk-body">
                     <a href="facility-list" class="govuk-link">Return to all facilities</p></a> 
                 </p>

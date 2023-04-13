@@ -1,7 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
 
 {% block pageTitle %}
-  Finished – {{ serviceName }} – GOV.UK Prototype Kit
+  Monthly report summary – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -26,21 +26,37 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
-          Report month end date
+          Month-end report date
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">
           {{ data['end-current-month'] }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key govuk-!-width-one-half">
-          Total fees due to UKEF
+        <dt class="govuk-summary-list__key">
+          Total fees payable to UKEF
         </dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+        <dd class="govuk-summary-list__value">
           GBP {{data['facility-1new-paid'] | float + data['facility-5new-paid'] | float }}
         </dd>
       </div>
-      <!--<div class="govuk-summary-list__row">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Report due by
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+          {{ data['this-month-report-due'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Payment due by
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+          {{ data['this-month-report-due'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Payment reference
         </dt>
@@ -55,19 +71,10 @@
         <dd class="govuk-summary-list__value">
           BANKGB22
         </dd>
-      </div>-->
-      
-      <!--<div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Today's date
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['todays-date-full'] }}
-        </dd>
-      </div>-->
+      </div>
     </dl>
 
-    <p class="govuk-body">Before submitting the report you can <a href="facility-list">go back</a> and make any changes to the facilities.</p>
+    <p class="govuk-body">Before submitting the report you can <a href="facility-list">go back</a> and make any amendments to the facilities.</p>
 
     <form action="/confirmation" method="post" novalidate>
       <input type="hidden" name="report-due" value="no">

@@ -1,7 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
 
 {% block pageTitle %}
-  Facilities list – {{ serviceName }} – GOV.UK Prototype Kit
+  All facilities – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -29,16 +29,17 @@
     
     <!-- display the due banner -->
     {% else %}
-    {{ mojBanner({
-      type: '',
-      text: 'Monthly status report due by XX April 2023 – all facilities must be updated and then submitted to UKEF.',
-      iconFallbackText: 'information'
-    }) }}
+    <div class="moj-banner" role="region" aria-label="information">
+    
+      <div class="moj-banner__message">Monthly report due by {{ data['this-month-report-due'] }} – all facilities must be updated and submitted to UKEF.</div>
+    
+    </div>
+    
     {% endif %}
     
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half">
-        <h1 class="govuk-heading-xl">All facilities</h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">All facilities</h1>
       </div>
       <div class="govuk-grid-column-one-half govuk-!-text-align-right">
         <!-- display submit button when all facilities updayed -->
@@ -141,7 +142,7 @@
           <td class="govuk-table__cell"><a href="/facility1">{{ data['facility-1-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
           <td class="govuk-table__cell">-</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag">Status</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">Utilised</strong></td>
           <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
         </tr>
       
@@ -150,7 +151,7 @@
           <td class="govuk-table__cell"><a href="/facility5">{{ data['facility-5-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
           <td class="govuk-table__cell">-</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag">Status</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">Utilised</strong></td>
           <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
         </tr>
       </tbody>
