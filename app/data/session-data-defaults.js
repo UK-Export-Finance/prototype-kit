@@ -98,7 +98,7 @@ module.exports = {
 
   // FACILITY 4 VALUES
   'facility-4-updated': 'no',
-  'facility-4-name': 'M5 Motors Ltd',
+  'facility-4-name': 'Motors Ltd',
   'facility-4-ref': '	0653289',
   'facility-4-ukef-id': '	0020001499',
 

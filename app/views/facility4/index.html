@@ -21,9 +21,9 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-l">Bank reference {{ data['facility-5-ref'] }}</span>
+    <span class="govuk-caption-l">Bank reference {{ data['facility-4-ref'] }}</span>
     <h1 class="govuk-heading-xl">
-      {{ data['facility-5-name'] }}
+      {{ data['facility-4-name'] }}
     </h1>
     <h2 class="govuk-heading-l">Overview</h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -32,7 +32,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Status
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">
-          {%  if (data['facility-5-updated'] == 'yes') %}
+          {%  if (data['facility-4-updated'] == 'yes') %}
           <!-- updated status view -->
             <strong class="govuk-tag govuk-tag--green">Update completed</strong>
           {% else %}
@@ -47,7 +47,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Exporter
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">
-          {{ data['facility-5-name'] }}
+          {{ data['facility-4-name'] }}
         </dd>
       </div>
       
@@ -56,7 +56,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Bank reference
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['facility-5-ref'] }}
+          {{ data['facility-4-ref'] }}
         </dd>
       </div>
       
@@ -65,7 +65,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           UKEF facility ID
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['facility-5-ukef-id'] }}
+          {{ data['facility-4-ukef-id'] }}
         </dd>
       </div>
       
@@ -119,7 +119,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           1 year probability of default (reported semi-annually)
         </dt>
         <dd class="govuk-summary-list__value">
-          Reported in July
+          {{ data['facility-4-prob-default'] }}
         </dd>
       </div>
 
@@ -141,7 +141,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
             Bank facility limit
           </dt>
           <dd class="govuk-summary-list__value govuk-!-width-one-half">
-            GBP {{ data['facility-5-limit'] }}
+            GBP {{ data['facility-4-limit'] }}
           </dd>
         </div>
   
@@ -150,7 +150,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
             UKEF cover
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['facility-5-cover'] }}
+            {{ data['facility-4-cover'] }}
           </dd>
         </div>
   
@@ -159,12 +159,12 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
             UKEF's maximum exposure
           </dt>
           <dd class="govuk-summary-list__value">
-            GBP {{ data['facility-5-limit'] }}
+            GBP {{ data['facility-4-limit'] }}
           </dd>
         </div>
       </dl> 
 
-      {% if 'no' in data['facility-5-updated'] %}
+      {% if 'no' in data['facility-4-updated'] %}
       
       <!-- Show the previously reported month-->
       <h2 class="govuk-heading-l">Utilisation and fees &ndash; {{ data['end-previous-month'] }}</h2>
@@ -177,7 +177,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Bank facility utilisation
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-              GBP {{ data['facility-5-utilisation'] }}
+              GBP {{ data['facility-4-utilisation'] }}
             </dd>
             <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
             </dd>
@@ -187,7 +187,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               UKEF's exposure
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5-exposure'] }}
+              GBP {{ data['facility-4-exposure'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -197,7 +197,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Fee payable to UKEF
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5-paid'] }} 
+              GBP {{ data['facility-4-paid'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -207,7 +207,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Fees accrued
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5-accrued'] }} 
+              GBP {{ data['facility-4-accrued'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -216,21 +216,20 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         
         <!-- Display the text fields for the latest month-->
 
-        <form action="/facility5/check" method="post" novalidate>
+        <form action="/facility4/check" method="post" novalidate>
           
 
         <h2 class="govuk-heading-l">Update utilisation and fees</h2>
 
         <p class="govuk-body">Enter details for the {{ data['report-month'] }} report.</p>
           
-
         {% set utilisationHtml %} 
         Bank facility utilisation on {{ data['end-current-month'] }}
         {% endset %}
 
         {{ govukInput({
-        id: "facility-5new-utilisation",
-        name: "facility-5new-utilisation",
+        id: "facility-4new-utilisation",
+        name: "facility-4new-utilisation",
         label: {
           html: utilisationHtml,
           classes: "govuk-label--s",
@@ -244,8 +243,8 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       }) }}
 
       {{ govukInput({
-        id: "facility-5new-paid",
-        name: "facility-5new-paid",
+        id: "facility-4new-paid",
+        name: "facility-4new-paid",
         label: {
           text: "Fee payable to UKEF",
           classes: "govuk-label--s",
@@ -259,8 +258,8 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       }) }}
 
       {{ govukInput({
-        id: "facility-5new-accrued",
-        name: "facility-5new-accrued",
+        id: "facility-4new-accrued",
+        name: "facility-4new-accrued",
         label: {
           text: "Fees accrued",
           classes: "govuk-label--s",
@@ -282,9 +281,9 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       </form>
       
       <!-- Show once updates have been saved -->
-      {% elseif 'yes' in data['facility-5-updated'] %}
+      {% elseif 'yes' in data['facility-4-updated'] %}
 
-      <form action="/facility5/index#update" method="post" novalidate>
+      <form action="/facility4/index#update" method="post" novalidate>
         
 
         <h2 class="govuk-heading-l" id="updated">Utilisation and fees &ndash; {{ data['end-current-month'] }}</h2>
@@ -296,10 +295,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Bank facility utilisation
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-              GBP {{ data['facility-5new-utilisation'] }}
+              GBP {{ data['facility-4new-utilisation'] }}
             </dd>
             <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              <a class="govuk-link" href="/facility5/utilisation">
+              <a class="govuk-link" href="/facility4/utilisation">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
@@ -309,7 +308,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               UKEF's exposure
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP  {{ data['facility-5new-utilisation'] * 0.8  }}     
+              GBP  {{ data['facility-4new-utilisation'] * 0.8  }}     
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -319,10 +318,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Fee payable to UKEF
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5new-paid'] }} 
+              GBP {{ data['facility-4new-paid'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/facility5/payable">
+              <a class="govuk-link" href="/facility4/payable">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
@@ -332,10 +331,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Fees accrued
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5new-accrued'] }} 
+              GBP {{ data['facility-4new-accrued'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/facility5/accrued">
+              <a class="govuk-link" href="/facility4/accrued">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
@@ -354,7 +353,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Bank facility utilisation
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-              GBP {{ data['facility-5-utilisation'] }}
+              GBP {{ data['facility-4-utilisation'] }}
             </dd>
             <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
             </dd>
@@ -364,7 +363,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               UKEF's exposure
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5-exposure'] }}
+              GBP {{ data['facility-4-exposure'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -374,7 +373,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Fee payable to UKEF
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5-paid'] }} 
+              GBP {{ data['facility-4-paid'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -384,7 +383,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
               Fee accrued
             </dt>
             <dd class="govuk-summary-list__value">
-              GBP {{ data['facility-5-accrued'] }} 
+              GBP {{ data['facility-4-accrued'] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
