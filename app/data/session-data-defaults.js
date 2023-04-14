@@ -158,5 +158,4 @@ module.exports = {
 'facility-6new-exposure': '',
 'facility-6new-paid': '',
 'facility-6new-accrued': '',
-
 }
