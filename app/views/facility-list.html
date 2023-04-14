@@ -115,12 +115,14 @@
       </tbody>
     </table>
 
+
+    
     <!--show facilities when report has been submitted / isn't due -->
     {% else %}
 
     <h1 class="govuk-heading-xl">All facilities</h1>
     
-    <p class="govuk-body">Next report due {{ data['next-month-report-due'] }}</p>
+    <!--<p class="govuk-body">Next report due by {{ data['next-month-report-due'] }}.</p>-->
 
     <table class="govuk-table" data-module="moj-sortable-table">
 
