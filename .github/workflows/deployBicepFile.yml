@@ -1,5 +1,11 @@
-on: [push]
-name: Azure ARM
+name: Development Azure ARM 
+on: 
+    push:
+        branches: feat/infrastructure
+env:
+    environment: dev
+    credentials: ${{ secrets.AZURE_CREDENTIALS }}
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
