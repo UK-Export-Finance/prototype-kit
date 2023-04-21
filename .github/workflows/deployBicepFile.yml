@@ -19,7 +19,7 @@ jobs:
   # 1. Setup infrastructure variables
   setup:
     name: Setup 🔧
-    runs-on: [self-hosted, Prototypekit, infrastructure]
+    runs-on: [ubuntu-latest, Prototypekit, infrastructure]
     outputs:
       environment: ${{ env.environment }}
       timezone: ${{ env.timezone }}
@@ -37,7 +37,7 @@ jobs:
     environment: ${{ needs.setup.outputs.environment }}
     outputs:
       environment: ${{ env.environment }}
-    runs-on: [self-hosted, Prototypekit, infrastructure]
+    runs-on: [ubuntu-latest, Prototypekit, infrastructure]
     steps:
       - name: Login 🔐
         uses: azure/login@v1
