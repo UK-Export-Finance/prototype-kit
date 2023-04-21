@@ -11,7 +11,7 @@ on:
 env:
   product: Prototypekit
   environment: infrastructure
-  resourceGroupName: ${{ secrets.AZURE_RG }}
+  resourceGroupName: rg-prototypekit-dev-001
   timezone: 'Europe/London'
   # Deployment environment target i.e., `dev`, `staging`, `prod`
   target: ${{ vars.environment }}
@@ -50,7 +50,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: ${{ secrets.AZURE_RG }}
+          resourceGroupName: rg-prototypekit-dev-001
           template: ./main.bicep
           parameters: 'storagePrefix=saprototypekitdev storageSKU=Standard_LRS'
           failOnStdErr: false   
