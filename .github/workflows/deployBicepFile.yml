@@ -2,7 +2,8 @@ name: Development Azure ARM
 on: 
     push:
         branches: feat/infrastructure
-
+env:
+  environment: infrastructure
 
 jobs:
   build-and-deploy:
