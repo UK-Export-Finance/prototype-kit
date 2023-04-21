@@ -25,10 +25,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    {% if (data['facility-1-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') %}
-    
-    <!-- display the due banner -->
+    {% if (data['facility-1-updated'] == 'yes') and (data['facility-2-updated'] == 'yes') and (data['facility-4-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') %}
+    <!-- do nothing -->
+
     {% else %}
+    <!-- display the due banner -->
     <div class="moj-banner" role="region" aria-label="information">
     
       <div class="moj-banner__message">Monthly report due by {{ data['this-month-report-due'] }} – all facilities must be updated and submitted to UKEF.</div>
@@ -43,7 +44,7 @@
       </div>
       <div class="govuk-grid-column-one-half govuk-!-text-align-right">
         <!-- display submit button when all facilities updayed -->
-        {% if (data['facility-1-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') %}
+        {% if (data['facility-1-updated'] == 'yes') and (data['facility-2-updated'] == 'yes') and (data['facility-4-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') %}
         {{ govukButton({
           text: "All facilities updated – continue",
           href: "summary"
@@ -52,7 +53,7 @@
         {% endif %}
       </div>
     </div>
-    
+
     <table class="govuk-table" data-module="moj-sortable-table">
 
       <thead class="govuk-table__head">
@@ -89,8 +90,51 @@
             <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
           {% endif %}
         </tr>
+  
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['facility-2-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility2">{{ data['facility-2-ref'] }}</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          <td class="govuk-table__cell">
+            {%  if (data['facility-2-updated'] == 'no') %}
+            -
+            {% elseif (data['facility-2-updated'] == 'yes') %}
+            GBP {{ data['facility-2new-paid'] }}
+            {% endif %}
+            </td>
+          {%  if (data['facility-2-updated'] == 'yes') %}
+          <!-- updated view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Update completed</strong></td>
+            <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+          {% else %}
+          <!-- default view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+            <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          {% endif %}
+        </tr>
       
-
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['facility-4-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility4">{{ data['facility-4-ref'] }}</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          <td class="govuk-table__cell">
+            {%  if (data['facility-4-updated'] == 'no') %}
+            -
+            {% elseif (data['facility-4-updated'] == 'yes') %}
+            GBP {{ data['facility-4new-paid'] }}
+            {% endif %}
+            </td>
+          {%  if (data['facility-4-updated'] == 'yes')  %}
+          <!-- updated view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Update completed</strong></td>
+            <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+          {% else %}
+          <!-- default view -->
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Update required</strong></td>
+            <td class="govuk-table__cell">{{ data['1-month-ago'] }}</td>
+          {% endif %}
+        </tr>
+  
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{ data['facility-5-name'] }}</td>
           <td class="govuk-table__cell"><a href="/facility5">{{ data['facility-5-ref'] }}</a></td>
@@ -116,7 +160,6 @@
     </table>
 
 
-    
     <!--show facilities when report has been submitted / isn't due -->
     {% else %}
 
@@ -142,6 +185,24 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{ data['facility-1-name'] }}</td>
           <td class="govuk-table__cell"><a href="/facility1">{{ data['facility-1-ref'] }}</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">Utilised</strong></td>
+          <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['facility-2-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility2">{{ data['facility-2-ref'] }}</a></td>
+          <td class="govuk-table__cell">GEF</td>
+          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">Utilised</strong></td>
+          <td class="govuk-table__cell">{{ data['todays-date'] }}</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['facility-4-name'] }}</td>
+          <td class="govuk-table__cell"><a href="/facility4">{{ data['facility-4-ref'] }}</a></td>
           <td class="govuk-table__cell">GEF</td>
           <td class="govuk-table__cell">-</td>
           <td class="govuk-table__cell"><strong class="govuk-tag">Utilised</strong></td>

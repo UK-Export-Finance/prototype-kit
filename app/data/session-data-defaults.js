@@ -9,8 +9,8 @@ module.exports = {
   'last-month': 'February 2023',
   'report-month': 'March 2023',
   '1-month-ago': '3 March 2023',
-  'todays-date': '14 April 2023',
-  'todays-date-full': '14 April 2023',
+  'todays-date': '21 April 2023',
+  'todays-date-full': '21 April 2023',
   'this-month-report-due': '18 April 2023',
   'next-month-report-due': '15 May 2023',
   
@@ -23,23 +23,19 @@ module.exports = {
   'facility-1-name': 'Compressors Ltd',
   'facility-1-ukef-id': '0020001371',
   'facility-1-ref': '0239397',
-  
   'facility-1-end-date': '16 June 2024',
   'facility-1-prob-default': '1.0%',
   'facility-1-limit': '600,000.00',
   'facility-1-cover': '80%',
   'facility-1-max': '480,000.00',
-
   'facility-1-utilisation': '400,000.00',
   'facility-1-exposure': '320,000.00',
   'facility-1-paid': '1,000.00',
   'facility-1-accrued': '10,000.00',
- 
   'facility-1new-utilisation': '',
   'facility-1new-exposure': '',
   'facility-1new-paid': '',
   'facility-1new-accrued': '',
-
   'facility-1utiisation-updated': 'no',
   'facility-1paid-updated': 'no',
   'facility-1accrued-updated': 'no',
@@ -49,23 +45,19 @@ module.exports = {
   'facility-2-name': 'Petroleum Ltd',
   'facility-2-ukef-id': '0020001413',
   'facility-2-ref': '0374289',
-
   'facility-2-end-date': '18 September 2026',
   'facility-2-prob-default': '1.2%',
   'facility-2-limit': '300,000.00',
   'facility-2-cover': '80%',
   'facility-2-max': '240,000.00',
-
   'facility-2-utilisation': '125,000.00',
   'facility-2-exposure': '100,000.00',
   'facility-2-accrued': '3000.00',
   'facility-2-paid': '800.00',
-
   'facility-2new-utilisation': '',
   'facility-2new-exposure': '',
   'facility-2new-paid': '',
   'facility-2new-accrued': '',
-
   'facility-2utiisation-updated': 'no',
   'facility-2paid-updated': 'no',
   'facility-2accrued-updated': 'no',
@@ -101,23 +93,19 @@ module.exports = {
   'facility-4-name': 'Motors Ltd',
   'facility-4-ref': '	0653289',
   'facility-4-ukef-id': '	0020001499',
-
   'facility-4-end-date': '23 Mar 2025',
   'facility-4-prob-default': '0.7%',
   'facility-4-limit': '1,500,000.00',
   'facility-4-cover': '80%',
   'facility-4-max': '1,500,000.00',
-
   'facility-4-utilisation': '500,000.00',
   'facility-4-exposure': '400,000.00',
   'facility-4-accrued': '20,000.00',
   'facility-4-paid': '2,000.00',
-
   'facility-4new-utilisation': '',
   'facility-4new-exposure': '',
   'facility-4new-paid': '',
   'facility-4new-accrued': '',
-
   'facility-4utiisation-updated': 'no',
   'facility-4paid-updated': 'no',
   'facility-4accrued-updated': 'no',
@@ -129,16 +117,13 @@ module.exports = {
   'facility-5-ref': '0378429',
   'facility-5-end-date': '23 July 2025',
   'facility-5-prob-default': '0.3%',
-
   'facility-5-limit': '2,500,000.00',
   'facility-5-cover': '80%',
   'facility-5-max': '2,000,000.00',
-
   'facility-5-utilisation': '1,900,000.00',
   'facility-5-exposure': '1,520,000.00',
   'facility-5-accrued': '50,000.00',
   'facility-5-paid': '5,000.00',
-
   'facility-5new-utilisation': '',
   'facility-5new-exposure': '1,600,000.00',
   'facility-5new-paid': '',
