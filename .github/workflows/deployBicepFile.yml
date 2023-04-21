@@ -11,6 +11,7 @@ on:
 env:
   product: Prototypekit
   environment: infrastructure
+  resourceGroupName: ${{ secrets.AZURE_RG }}
   timezone: 'Europe/London'
   # Deployment environment target i.e., `dev`, `staging`, `prod`
   target: ${{ vars.environment }}
