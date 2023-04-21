@@ -1,30 +1,56 @@
-name: Development Azure ARM 
-on: 
-    push:
-        branches: feat/infrastructure
+name: Infrastructure 🔨
+run-name: Prototypekit base infrastructure build from ${{ github.repository }}
+
+on:
+  push:
+    branches:
+      - infrastructure
+
+    paths: [.github/workflows/deployBicepFile.yml]
+
 env:
-  environment: Preproduction
-  product: prototypekit
+  product: Prototypekit
+  environment: infrastructure
+  timezone: 'Europe/London'
+  # Deployment environment target i.e., `dev`, `staging`, `prod`
+  target: ${{ vars.environment }}
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  # 1. Setup infrastructure variables
+  setup:
+    name: Setup 🔧
+    runs-on: [self-hosted, Prototypekit, infrastructure]
+    outputs:
+      environment: ${{ env.environment }}
+      timezone: ${{ env.timezone }}
     steps:
+      - name: Environment 🧪
+        run: echo "Environment set to ${{ env.environment }}"
 
-      # Checkout code
-    - uses: actions/checkout@main
+      - name: Timezone 🌐
+        run: echo "Timezone set to ${{ env.timezone }}"
 
-      # Log into Azure
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      # Deploy Bicep file
-    - name: deploy
-      uses: azure/arm-deploy@v1
-      with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./main.bicep
-        parameters: 'storagePrefix=saprototypekitdev storageSKU=Standard_LRS'
-        failOnStdErr: false
+  # 2. Base infrastructure creation
+  base:
+    name: Base 🧱
+    needs: setup
+    environment: ${{ needs.setup.outputs.environment }}
+    outputs:
+      environment: ${{ env.environment }}
+    runs-on: [self-hosted, Prototypekit, infrastructure]
+    steps:
+      - name: Login 🔐
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+         # Deploy Bicep file
+      - name: deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: ./main.bicep
+          parameters: 'storagePrefix=saprototypekitdev storageSKU=Standard_LRS'
+          failOnStdErr: false    
+	
