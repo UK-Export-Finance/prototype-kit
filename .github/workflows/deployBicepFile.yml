@@ -3,7 +3,8 @@ on:
     push:
         branches: feat/infrastructure
 env:
-  environment: infrastructure
+  environment: Preproduction
+  product: prototypekit
 
 jobs:
   build-and-deploy:
