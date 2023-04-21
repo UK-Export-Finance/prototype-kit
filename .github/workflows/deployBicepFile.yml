@@ -4,7 +4,7 @@ run-name: Prototypekit base infrastructure build from ${{ github.repository }}
 on:
   push:
     branches:
-      - infrastructure
+      - feat/infrastructure
 
     paths: [.github/workflows/deployBicepFile.yml]
 
@@ -52,5 +52,4 @@ jobs:
           resourceGroupName: ${{ secrets.AZURE_RG }}
           template: ./main.bicep
           parameters: 'storagePrefix=saprototypekitdev storageSKU=Standard_LRS'
-          failOnStdErr: false    
-	
+          failOnStdErr: false   
