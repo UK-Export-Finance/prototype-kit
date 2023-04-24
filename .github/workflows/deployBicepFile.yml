@@ -70,7 +70,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          scope: sub
+          scope: subscription
           template: ./createNewRG.bicep
            
           
