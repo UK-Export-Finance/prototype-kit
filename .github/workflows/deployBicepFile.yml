@@ -30,6 +30,8 @@ jobs:
 
       - name: Timezone 🌐
         run: echo "Timezone set to ${{ env.timezone }}"
+        
+      - uses: actions/checkout@feat/infrastructure  
 
   # 2. Base infrastructure creation
   base:
