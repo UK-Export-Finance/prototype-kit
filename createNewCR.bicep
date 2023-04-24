@@ -1,56 +1,24 @@
-resource symbolicname 'Microsoft.ContainerRegistry/registries@2022-12-01' = {
-  name: 'string'
-  location: 'string'
-  tags: {
-    tagName1: 'tagValue1'
-    tagName2: 'tagValue2'
-  }
+@minLength(5)
+@maxLength(50)
+@description('Provide a globally unique name of your Azure Container Registry')
+param acrName string = 'acr${uniqueString(resourceGroup().id)}'
+
+@description('Provide a location for the registry.')
+param location string = resourceGroup().location
+
+@description('Provide a tier of your Azure Container Registry.')
+param acrSku string = 'Basic'
+
+resource acrResource 'Microsoft.ContainerRegistry/registries@2023-01-01-preview' = {
+  name: acrName
+  location: location
   sku: {
-    name: 'string'
-  }
-  identity: {
-    principalId: 'string'
-    tenantId: 'string'
-    type: 'string'
-    userAssignedIdentities: {}
+    name: acrSku
   }
   properties: {
-    adminUserEnabled: bool
-    dataEndpointEnabled: bool
-    encryption: {
-      keyVaultProperties: {
-        identity: 'string'
-        keyIdentifier: 'string'
-      }
-      status: 'string'
-    }
-    networkRuleBypassOptions: 'string'
-    networkRuleSet: {
-      defaultAction: 'string'
-      ipRules: [
-        {
-          action: 'Allow'
-          value: 'string'
-        }
-      ]
-    }
-    policies: {
-      exportPolicy: {
-        status: 'string'
-      }
-      quarantinePolicy: {
-        status: 'string'
-      }
-      retentionPolicy: {
-        days: int
-        status: 'string'
-      }
-      trustPolicy: {
-        status: 'string'
-        type: 'Notary'
-      }
-    }
-    publicNetworkAccess: 'string'
-    zoneRedundancy: 'string'
+    adminUserEnabled: false
   }
 }
+
+@description('Output the login server property for later use')
+output loginServer string = acrResource.properties.loginServer
