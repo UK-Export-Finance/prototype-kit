@@ -31,7 +31,7 @@ jobs:
       - name: Timezone 🌐
         run: echo "Timezone set to ${{ env.timezone }}"
         
-      - uses: actions/checkout@feat/infrastructure  
+       
 
   # 2. Base infrastructure creation
   base:
@@ -42,6 +42,15 @@ jobs:
       environment: ${{ env.environment }}
     runs-on: ubuntu-latest
     steps:
+      - name: Pre-production 💫
+        if: contains('["dev", "staging"]', env.target)
+        run: echo "type=Preproduction" >> $GITHUB_ENV
+        
+      - name: Tags 🏷️
+        run: echo tags='Environment=${{ env.type }}' \
+          'Product=${{ env.product }}' \
+          'Team=development' >> $GITHUB_ENV  
+    
       - name: Login 🔐
         uses: azure/login@v1
         with:
