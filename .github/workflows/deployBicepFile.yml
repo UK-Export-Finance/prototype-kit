@@ -42,6 +42,8 @@ jobs:
       environment: ${{ env.environment }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@feat/infrastructure
+    
       - name: Pre-production 💫
         if: contains('["dev", "staging"]', env.target)
         run: echo "type=Preproduction" >> $GITHUB_ENV
