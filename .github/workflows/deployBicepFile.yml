@@ -70,13 +70,13 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: rg-prototypekit-dev-002
+          resourceGroupName: rg-prototypekit-dev-001
           resourceGroupLocation: UK South
           template: ./createNewRG.bicep
            
           
               # Deploy Storage Account
-      - name: deploy
+      - name: Storage Account
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
