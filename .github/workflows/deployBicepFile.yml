@@ -71,6 +71,7 @@ jobs:
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           scope: subscription
+          region: UK South
           template: ./createNewRG.bicep
            
           
