@@ -72,5 +72,5 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: rg-prototypekit-dev-001
           template: ./main.bicep
-          parameters: 'storagePrefix=saprototypekitdev storageSKU=Standard_LRS'
+          parameters: 'storagePrefix=saprokitdev storageSKU=Standard_LRS'
           failOnStdErr: false   
