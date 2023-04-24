@@ -13,14 +13,14 @@ env:
   environment: infrastructure
   resourceGroupName: rg-prototypekit-dev-001
   timezone: 'Europe/London'
-  # Deployment environment target i.e., `dev`, `staging`, `prod`
+  # Deployment environment target i.e., `feat/intrastructure`, `main`, `prod`
   target: ${{ vars.environment }}
 
 jobs:
   # 1. Setup infrastructure variables
   setup:
     name: Setup 🔧
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest      
     outputs:
       environment: ${{ env.environment }}
       timezone: ${{ env.timezone }}
@@ -41,11 +41,10 @@ jobs:
     outputs:
       environment: ${{ env.environment }}
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@feat/infrastructure
+    steps:      
     
       - name: Pre-production 💫
-        if: contains('["dev", "staging"]', env.target)
+        if: contains('["feat/infrastructure", "staging"]', env.target)
         run: echo "type=Preproduction" >> $GITHUB_ENV
         
       - name: Tags 🏷️
