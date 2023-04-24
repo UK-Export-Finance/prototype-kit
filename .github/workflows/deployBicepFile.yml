@@ -46,6 +46,10 @@ jobs:
       environment: ${{ env.environment }}
     runs-on: ubuntu-latest
     steps:      
+      # Checkout latest commit
+      - name: 1. Latest commit
+        uses: actions/checkout@v3
+    
     
       - name: Pre-production 💫
         if: contains('["feat/infrastructure", "staging"]', env.target)
