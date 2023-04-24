@@ -1,5 +1,9 @@
-// module deployed at subscription level
-module exampleModule 'module.bicep' = {
-  name: 'rg-prototypekit-dev-002'
-  scope: subscription()
+targetScope='subscription'
+
+param resourceGroupName string
+param resourceGroupLocation string
+
+resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
+  name: resourceGroupName
+  location: resourceGroupLocation
 }
