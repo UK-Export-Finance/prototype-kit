@@ -25,6 +25,10 @@ jobs:
       environment: ${{ env.environment }}
       timezone: ${{ env.timezone }}
     steps:
+      # Checkout latest commit
+      - name: 1. Latest commit
+        uses: actions/checkout@v3
+    
       - name: Environment 🧪
         run: echo "Environment set to ${{ env.environment }}"
 
