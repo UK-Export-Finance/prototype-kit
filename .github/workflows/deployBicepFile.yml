@@ -71,7 +71,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          scope: subscription
+          scope: resourcegroup
           resourceGroupName: rg-prototypekit-dev-001
           region: UK South
           template: ./createNewVNet.bicep 
