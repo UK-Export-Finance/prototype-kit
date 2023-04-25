@@ -70,7 +70,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          scope: resourceGroup
+          scope: resourcegroup
           resourceGroupName: rg-prototypekit-dev-001
           region: UK South
           template: ./createNewRG.bicep
