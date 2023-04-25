@@ -65,14 +65,16 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-
-          # Deploy Virtual Network
-      - name: Virtual network 🧵
+          # Deploy App Service Plan and App Service
+      - name: App Service
         uses: azure/arm-deploy@v1
         with:
           resourceGroupName: ${{ vars.AZURE_RG }}
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          template: ./createNewVNet.bicep 
+          template: ./createNewAppSer.bicep 
+
+
+           
 
           # Deploy Resource group
       - name: Resource group 🏗️
@@ -92,20 +94,20 @@ jobs:
           scope: resourcegroup
           resourceGroupName: rg-prototypekit-dev-001
           region: UK South
-          template: ./createNewCR.bicep           
-          
+          template: ./createNewCR.bicep   
+
+          # Deploy Virtual Network
+      - name: Virtual network 🧵
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: ${{ vars.AZURE_RG }}
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
+          template: ./createNewVNet.bicep     
              
           
            
           
-          # Deploy App Service Plan and App Service
-      - name: App Service
-        uses: azure/arm-deploy@v1
-        with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          scope: subscription
-          region: UK South
-          template: ./createNewAppSer.bicep    
+             
           
            
           

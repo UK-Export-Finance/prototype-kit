@@ -1,7 +1,7 @@
 param location string = resourceGroup().location
   
 var virtualNetwork = {
-  name: 'tamopsvnet'
+  name: 'prototypekit-vnet'
   location: location
   addressPrefixes: [
     '10.0.0.0/16'
