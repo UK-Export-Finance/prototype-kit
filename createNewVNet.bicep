@@ -1,17 +1,35 @@
+param location string = resourceGroup().location
+
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
-  name: virtualNetworkName
+  name: 'prototypekit-network'
   location: location
+  tags: {
+    Owner: 'Vamshi'
+    Purpose: 'Prototypekit'
+  }
   properties: {
     addressSpace: {
       addressPrefixes: [
-        '10.0.0.0/16'
+        '20.0.0.0/16'
       ]
     }
     subnets: [
       {
-        name: subnetName
+        name: 'servers'
         properties: {
-          addressPrefix: '10.0.2.0/24'
+          addressPrefix: '20.0.0.0/24'
+        }
+      }
+      {
+        name: 'desktops'
+        properties: {
+          addressPrefix: '20.0.1.0/24'
+        }
+      }
+      {
+        name: 'resources'
+        properties: {
+          addressPrefix: '20.0.2.0/24'
         }
       }
     ]
