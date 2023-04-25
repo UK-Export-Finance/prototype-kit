@@ -1,17 +1,8 @@
-
-
 @description('Location for all resources.')
 param location string = resourceGroup().location
-
-
 var virtualNetworkName = 'vNet'
 var subnetName = 'backendSubnet'
 var subnetRef = resourceId('Microsoft.Network/virtualNetworks/subnets', virtualNetworkName, subnetName)
-
-
-
-
-
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
   name: virtualNetworkName
