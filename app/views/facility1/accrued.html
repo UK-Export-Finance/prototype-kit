@@ -35,7 +35,7 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
     <!-- continue to next screen - payable - as it's the 1st visit to this page -->
     {% if (data['facility-1accrued-updated'] == 'no') and (data['facility-1-updated'] == 'no')  %}
     <form class="form" action="check" method="post">
-    <input type="hidden" name="facility-1utiisation-updated" value="yes">
+    <input type="hidden" name="facility-1accrued-updated" value="yes">
     
     <!-- send to check answers screen as that is where they've just come from -->
     {% elseif (data['facility-1accrued-updated'] == 'yes') and (data['facility-1-updated'] == 'no')  %}
