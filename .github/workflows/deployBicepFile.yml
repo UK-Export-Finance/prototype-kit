@@ -70,7 +70,7 @@ jobs:
       - name: Virtual network 🧵
         uses: azure/arm-deploy@v1
         with:
-          resourceGroupName: ${{ vars.ResourceGroupName }}
+          resourceGroupName: ${{ vars.AZURE_RG }}
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           template: ./createNewVNet.bicep 
 
