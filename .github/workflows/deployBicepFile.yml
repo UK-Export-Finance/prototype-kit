@@ -70,10 +70,12 @@ jobs:
       - name: Virtual network 🧵
         uses: azure/arm-deploy@v1
         with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           scope: resourcegroup
           resourceGroupName: rg-prototypekit-dev-001
           region: UK South
+          adminUsername: ${{ vars.ADMINUSERNAME }}
+          adminPassword: ${{ vars.ADMINPASSWORD }}
           template: ./createNewVNet.bicep 
 
           # Deploy Resource group
