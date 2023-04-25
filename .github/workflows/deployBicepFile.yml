@@ -72,7 +72,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          scope: subscription
+          scope: resourcegroup
           region: UK South
           template: ./createNewCR.bicep 
 
