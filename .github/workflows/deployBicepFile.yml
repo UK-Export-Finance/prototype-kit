@@ -13,7 +13,6 @@ env:
   environment: infrastructure
   resourceGroupName: rg-prototypekit-dev-001
   timezone: 'Europe/London'
-  templateFile: './createNewRG.bicep'
   # Deployment environment target i.e., `feat/intrastructure`, `main`, `prod`
   target: ${{ vars.environment }}
 
@@ -67,6 +66,26 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
 
+          # Deploy Virtual Network
+      - name: Virtual network 🧵
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          scope: subscription
+          resourceGroupName: rg-prototypekit-dev-001
+          region: UK South
+          template: ./createNewVNet.bicep 
+
+          # Deploy Resource group
+      - name: Resource group 🏗️
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
+          scope: subscription
+          resourceGroupName: rg-prototypekit-dev-001
+          region: UK South
+
+
           # Deploy Container Registry
       - name: Container registry 📦️
         uses: azure/arm-deploy@v1
@@ -75,28 +94,11 @@ jobs:
           scope: resourcegroup
           resourceGroupName: rg-prototypekit-dev-001
           region: UK South
-          template: ./createNewCR.bicep 
-
-          
-         # Deploy Resource group
-      - name: Resource group 🏗️
-        uses: azure/arm-deploy@v1
-        with:
-          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          scope: subscription
-          resourceGroupName: rg-prototypekit-dev-001
-          region: UK South          
+          template: ./createNewCR.bicep           
           
              
           
-          # Deploy Virtual Network
-      - name: Virtual network 🧵
-        uses: azure/arm-deploy@v1
-        with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          scope: subscription
-          region: UK South
-          template: ./createNewVNet.bicep  
+           
           
           # Deploy App Service Plan and App Service
       - name: App Service
