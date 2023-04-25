@@ -72,7 +72,7 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           scope: subscription
           resourceGroupName: rg-prototypekit-dev-001
-          resourceGroupLocation: UK South
+          region: UK South
           template: ./createNewRG.bicep
           
           # Deploy Container Registry
