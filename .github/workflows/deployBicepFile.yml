@@ -73,7 +73,7 @@ jobs:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           scope: subscription
           resourceGroupName: ${{ vars.AZURE_RG }}
-          region: UK South
+          region: ${{ vars.AZURE_REGION }}
 
 
           # Deploy Container Registry
@@ -83,7 +83,7 @@ jobs:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           scope: resourcegroup
           resourceGroupName: ${{ vars.AZURE_RG }}
-          region: UK South
+          region: ${{ vars.AZURE_REGION }}
           template: ./createNewCR.bicep   
 
           # Deploy Virtual Network
