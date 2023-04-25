@@ -65,6 +65,17 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+
+          # Deploy Container Registry
+      - name: Container registry 📦️
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
+          scope: subscription
+          region: UK South
+          template: ./createNewCR.bicep 
+
           
          # Deploy Resource group
       - name: Resource group 🏗️
@@ -73,23 +84,9 @@ jobs:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           scope: subscription
           resourceGroupName: rg-prototypekit-dev-001
-          region: UK South
-          scriptType: 'bash'
-          scriptLocation: 'inlineScript'
-          inlineScript: |
-            az --version
-            az group create --name $(resourceGroupName) --location $(location)
-            az deployment group what-if --resource-group $(resourceGroupName) \
-            --template-file $(templateFile)
+          region: UK South          
           
-          # Deploy Container Registry
-      - name: Container registry 📦️
-        uses: azure/arm-deploy@v1
-        with:
-          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          scope: subscription
-          region: UK South
-          template: ./createNewCR.bicep    
+             
           
           # Deploy Virtual Network
       - name: Virtual network 🧵
