@@ -100,8 +100,7 @@ jobs:
         with:
           resourceGroupName: ${{ vars.AZURE_RG }}
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          template: ./createNewVNet.bicep     
-             
+          template: ./createNewVNet.bicep                
           
            
           

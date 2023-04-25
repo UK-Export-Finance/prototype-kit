@@ -19,7 +19,6 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
 }
 
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
-  dependsOn: appServicePlan 
   name: webSiteName
   location: location
   kind: 'app'
