@@ -73,6 +73,7 @@ jobs:
         with:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           scope: resourcegroup
+          resourceGroupName: rg-prototypekit-dev-001
           region: UK South
           template: ./createNewCR.bicep 
 
