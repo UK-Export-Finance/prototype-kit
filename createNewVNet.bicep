@@ -1,9 +1,9 @@
 @description('Admin username')
-param adminUsername string
+param adminUsername string = '${{ vars.ADMINUSERNAME }}'
 
 @description('Admin password')
 @secure()
-param adminPassword string
+param adminPassword string = '${{ vars.ADMINPASSWORD }}'
 
 @description('Prefix to use for VM names')
 param vmNamePrefix string = 'BackendVM'
