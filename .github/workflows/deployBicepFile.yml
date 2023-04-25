@@ -74,8 +74,9 @@ jobs:
           scope: resourcegroup
           resourceGroupName: rg-prototypekit-dev-001
           region: UK South
-          adminUsername: ${{ vars.ADMINUSERNAME }}
-          adminPassword: ${{ vars.ADMINPASSWORD }}
+          parameters:
+            adminUsername: ${{ vars.ADMINUSERNAME }}
+            adminPassword: ${{ vars.ADMINPASSWORD }}
           template: ./createNewVNet.bicep 
 
           # Deploy Resource group
