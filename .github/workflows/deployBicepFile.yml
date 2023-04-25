@@ -69,7 +69,7 @@ jobs:
       - name: Resource group 🏗️
         uses: azure/arm-deploy@v1
         with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           scope: subscription
           resourceGroupName: rg-prototypekit-dev-001
           region: UK South
