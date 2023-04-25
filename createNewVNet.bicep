@@ -1,37 +1,44 @@
+@description('Admin username')
+param adminUsername string
+
+@description('Admin password')
+@secure()
+param adminPassword string
+
+
+
+@description('Location for all resources.')
 param location string = resourceGroup().location
 
+
+var virtualNetworkName = 'vNet'
+var subnetName = 'backendSubnet'
+var subnetRef = resourceId('Microsoft.Network/virtualNetworks/subnets', virtualNetworkName, subnetName)
+
+
+
+
+
+
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
-  name: 'prototypekit-network'
+  name: virtualNetworkName
   location: location
-  tags: {
-    Owner: 'Vamshi'
-    Purpose: 'Prototypekit'
-  }
   properties: {
     addressSpace: {
       addressPrefixes: [
-        '20.0.0.0/16'
+        '10.0.0.0/16'
       ]
     }
     subnets: [
       {
-        name: 'servers'
+        name: subnetName
         properties: {
-          addressPrefix: '20.0.0.0/24'
-        }
-      }
-      {
-        name: 'desktops'
-        properties: {
-          addressPrefix: '20.0.1.0/24'
-        }
-      }
-      {
-        name: 'resources'
-        properties: {
-          addressPrefix: '20.0.2.0/24'
+          addressPrefix: '10.0.2.0/24'
         }
       }
     ]
   }
 }
+
+
+
