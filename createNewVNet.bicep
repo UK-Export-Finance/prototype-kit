@@ -3,7 +3,7 @@
 param location string = resourceGroup().location
 
 @description('Tags to add to the resources')
-param tags object = {}
+param tags object 
 
 @description('Name of the virtual network resource')
 param virtualNetworkName string
