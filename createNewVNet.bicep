@@ -1,10 +1,3 @@
-@description('Admin username')
-param adminUsername string = newGuid
-
-@description('Admin password')
-@secure()
-param adminPassword string = newGuid
-
 
 
 @description('Location for all resources.')
