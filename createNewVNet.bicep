@@ -8,13 +8,13 @@ var virtualNetwork = {
     ]
   subnets: [
     {
-      name: 'testsubnet1'
+      name: 'prototypekitsubnet1'
       properties: {
         addressPrefix: '10.0.0.0/24'
       }
     }
     {
-      name: 'testsubnet2'
+      name: 'prototypekitsubnet2'
       properties: {
         addressPrefix: '10.0.1.0/24'
       }

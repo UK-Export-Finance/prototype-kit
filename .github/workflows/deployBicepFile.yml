@@ -63,15 +63,7 @@ jobs:
       - name: Login 🔐
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-          # Deploy App Service Plan and App Service
-      - name: App Service
-        uses: azure/arm-deploy@v1
-        with:
-          resourceGroupName: ${{ vars.AZURE_RG }}
-          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          template: ./createNewAppSer.bicep 
+          creds: ${{ secrets.AZURE_CREDENTIALS }}          
            
 
           # Deploy Resource group
@@ -80,7 +72,7 @@ jobs:
         with:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           scope: subscription
-          resourceGroupName: rg-prototypekit-dev-001
+          resourceGroupName: ${{ vars.AZURE_RG }}
           region: UK South
 
 
@@ -90,7 +82,7 @@ jobs:
         with:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           scope: resourcegroup
-          resourceGroupName: rg-prototypekit-dev-001
+          resourceGroupName: ${{ vars.AZURE_RG }}
           region: UK South
           template: ./createNewCR.bicep   
 
@@ -103,7 +95,13 @@ jobs:
           template: ./createNewVNet.bicep                
           
            
-          
+          # Deploy App Service Plan and App Service
+      - name: App Service
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: ${{ vars.AZURE_RG }}
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
+          template: ./createNewAppSer.bicep 
              
           
            
@@ -113,7 +111,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: rg-prototypekit-dev-001
-          template: ./main.bicep
+          resourceGroupName: ${{ vars.AZURE_RG }}
+          template: ./createNewStorage.bicep
           parameters: 'storagePrefix=saprokitdev storageSKU=Standard_LRS'
           failOnStdErr: false
