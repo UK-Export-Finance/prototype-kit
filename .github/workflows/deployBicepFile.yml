@@ -13,6 +13,7 @@ env:
   environment: infrastructure
   resourceGroupName: rg-prototypekit-dev-001
   timezone: 'Europe/London'
+  templateFile: './createNewRG.bicep'
   # Deployment environment target i.e., `feat/intrastructure`, `main`, `prod`
   target: ${{ vars.environment }}
 
@@ -52,7 +53,7 @@ jobs:
     
     
       - name: Pre-production 💫
-        if: contains('["feat/infrastructure", "staging"]', env.target)
+        if: contains('["feat/infrastructure", "main"]', env.target)
         run: echo "type=Preproduction" >> $GITHUB_ENV
         
       - name: Tags 🏷️
@@ -73,7 +74,13 @@ jobs:
           scope: subscription
           resourceGroupName: rg-prototypekit-dev-001
           region: UK South
-          template: ./createNewRG.bicep
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            az --version
+            az group create --name $(resourceGroupName) --location $(location)
+            az deployment group what-if --resource-group $(resourceGroupName) \
+            --template-file $(templateFile)
           
           # Deploy Container Registry
       - name: Container registry 📦️
