@@ -1,9 +1,9 @@
 @description('Admin username')
-param adminUsername string = ''
+param adminUsername string = newGuid
 
 @description('Admin password')
 @secure()
-param adminPassword string = ''
+param adminPassword string = newGuid
 
 
 
