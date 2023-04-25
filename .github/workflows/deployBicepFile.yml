@@ -74,6 +74,7 @@ jobs:
           scope: subscription
           resourceGroupName: ${{ vars.AZURE_RG }}
           region: ${{ vars.AZURE_REGION }}
+          template: ./createNewRG.bicep
 
 
           # Deploy Container Registry
