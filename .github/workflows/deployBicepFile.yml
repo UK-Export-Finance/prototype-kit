@@ -78,8 +78,7 @@ jobs:
       - name: Container registry 📦️
         uses: azure/arm-deploy@v1
         with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          scope: subscription
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           region: UK South
           template: ./createNewCR.bicep    
           
