@@ -73,7 +73,6 @@ jobs:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           template: ./createNewAppSer.bicep 
 
-
            
 
           # Deploy Resource group
