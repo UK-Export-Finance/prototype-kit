@@ -65,7 +65,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}          
            
-           
+
           # Deploy Resource group
       - name: Resource group 🏗️
         uses: azure/arm-deploy@v1
@@ -75,6 +75,7 @@ jobs:
           resourceGroupName: ${{ vars.AZURE_RG }}
           region: ${{ vars.AZURE_REGION }}
           template: ./createNewRG.bicep
+          
 
 
           # Deploy Container Registry
