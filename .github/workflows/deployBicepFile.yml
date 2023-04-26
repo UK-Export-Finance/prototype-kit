@@ -76,6 +76,7 @@ jobs:
           region: ${{ vars.AZURE_REGION }}
           template: ./createNewRG.bicep
           
+          
 
           # Deploy Container Registry
       - name: Container registry 📦️
