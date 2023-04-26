@@ -1,4 +1,4 @@
-targetScope='resourcegroup'
+targetScope='resourceGroup'
 
 param resourceGroupName string = 'rg-prototypekit-dev-001'
 param resourceGroupLocation string = 'UK South'
