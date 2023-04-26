@@ -68,15 +68,14 @@ jobs:
 
           # Deploy Resource group
       - name: Resource group 🏗️
-        uses: azure/arm-deploy@v1
+        uses: Azure/cli@v1.0.7
         with:
-          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          scope: subscription
-          resourceGroupName: ${{ vars.AZURE_RG }}
-          region: ${{ vars.AZURE_REGION }}
-          template: ./createNewRG.bicep
+          inlineScript: |
+            az group create \
+            --name rg-${{ env.product }}-${{ env.target }}-${{ vars.VERSION }} \
+            --tags ${{ env.tags }}
           
-          
+
 
           # Deploy Container Registry
       - name: Container registry 📦️
