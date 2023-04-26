@@ -65,7 +65,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}          
            
-
           # Deploy Resource group
       - name: Resource group 🏗️
         uses: azure/arm-deploy@v1
