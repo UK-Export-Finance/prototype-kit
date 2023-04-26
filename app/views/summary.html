@@ -23,6 +23,8 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Monthly report summary</h1>
 
+    <h2 class="govuk-heading-l">Total fees: <strong>GBP {{(data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float) }}</strong></h2>
+
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
@@ -30,14 +32,6 @@
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">
           {{ data['end-current-month'] }}
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Total fees payable to UKEF
-        </dt>
-        <dd class="govuk-summary-list__value">
-          GBP {{data['facility-1new-paid'] | float + data['facility-5new-paid'] | float }}
         </dd>
       </div>
       <div class="govuk-summary-list__row">

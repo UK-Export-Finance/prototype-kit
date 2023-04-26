@@ -132,28 +132,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         <dd class="govuk-summary-list__actions">
         </dd>
       </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          1 year probability of default (reported semi-annually)
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['facility-1-prob-default'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Flag: 90 days still no utilisation (from date of facility letter)
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Issued
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
+      
       </dl>
 
 
@@ -161,7 +140,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Bank facility limit
+            Facility value
           </dt>
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
             GBP {{ data['facility-1-limit'] }}
@@ -205,14 +184,14 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
-          Bank facility utilisation
+          Facility utilisation
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
           GBP {{ data['facility-1new-utilisation'] }}
         </dd>
         <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
           <a class="govuk-link" href="/facility1/utilisation">
-            Change<span class="govuk-visually-hidden"> bank facility utilisation</span>
+            Change<span class="govuk-visually-hidden"> facility utilisation</span>
           </a>
         </dd>
       </div>
@@ -265,7 +244,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
-          Bank facility utilisation
+          Facility utilisation
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
           GBP {{ data['facility-1-utilisation'] }}
@@ -316,7 +295,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
-          Bank facility utilisation
+          Facility utilisation
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
           GBP {{ data['facility-1-utilisation'] }}
@@ -371,7 +350,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-half">
-          Bank facility utilisation
+          Facility utilisation
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
           GBP {{ data['facility-1new-utilisation'] }}
