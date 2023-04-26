@@ -77,7 +77,6 @@ jobs:
           template: ./createNewRG.bicep
           
 
-
           # Deploy Container Registry
       - name: Container registry 📦️
         uses: azure/arm-deploy@v1
