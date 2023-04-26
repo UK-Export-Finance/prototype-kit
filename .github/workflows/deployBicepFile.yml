@@ -71,7 +71,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          scope: resourceGroup
+          scope: resourcegroup
           resourceGroupName: ${{ vars.AZURE_RG }}
           region: ${{ vars.AZURE_REGION }}
           template: ./createNewRG.bicep
