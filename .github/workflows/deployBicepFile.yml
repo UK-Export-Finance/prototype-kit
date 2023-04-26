@@ -71,9 +71,7 @@ jobs:
         uses: Azure/cli@v1.0.7
         with:
           inlineScript: |
-            az group create \
-            --name rg-${{ env.product }}-${{ env.target }}-${{ vars.VERSION }} \
-            --tags ${{ env.tags }}
+            az group create -n ${{ vars.AZURE_RG }} -l ${{ vars.AZURE_REGION }}
           
 
 
