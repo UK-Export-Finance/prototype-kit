@@ -104,8 +104,7 @@ jobs:
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           template: ./createNewAppSer.bicep    
                      
-          
-                    
+                              
               # Deploy Storage Account
       - name: Storage Account
         uses: azure/arm-deploy@v1
