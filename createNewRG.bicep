@@ -1,7 +1,7 @@
 targetScope='subscription'
 
-param resourceGroupName string = '${{ vars.AZURE_RG }}'
-param resourceGroupLocation string = '${{ vars.AZURE_REGION }}'
+param resourceGroupName string = 'rg-prototypekit-dev-001'
+param resourceGroupLocation string = 'UK South'
 
 
 resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
