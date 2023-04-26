@@ -71,7 +71,7 @@ jobs:
         uses: Azure/cli@v1.0.7
         with:
           inlineScript: |
-            az group create -n ${{ vars.AZURE_RG }} -l uksouth
+            az group create -n ${{ vars.AZURE_RG }} -l ${{ secrets.AZURE_LOCATION }}
           
 
 
@@ -100,16 +100,8 @@ jobs:
         with:
           resourceGroupName: ${{ vars.AZURE_RG }}
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          template: ./createNewAppSer.bicep    
-                     
+          template: ./createNewAppSer.bicep 
+               
 
                           
-              # Deploy Storage Account
-      - name: Storage Account
-        uses: azure/arm-deploy@v1
-        with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: ${{ vars.AZURE_RG }}
-          template: ./createNewStorage.bicep
-          parameters: 'storagePrefix=saprokitdev storageSKU=Standard_LRS'
-          failOnStdErr: false
+              
