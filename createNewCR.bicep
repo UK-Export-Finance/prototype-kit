@@ -1,7 +1,7 @@
 @minLength(5)
 @maxLength(50)
 @description('Provide a globally unique name of your Azure Container Registry')
-param acrName string = 'acr${uniqueString(resourceGroup().id)}'
+param acrName string = 'prototypekit-acr${uniqueString(resourceGroup().id)}'
 
 @description('Provide a location for the registry.')
 param location string = resourceGroup().location
