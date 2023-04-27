@@ -1,4 +1,4 @@
-param acrName string = 'acr${uniqueString(resourceGroup().id)}'
+param acrName string = 'crprototypekitdev001'
 param location string = resourceGroup().location
 param acrSku string = 'Basic'
 

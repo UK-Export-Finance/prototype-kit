@@ -48,14 +48,18 @@ jobs:
           inlineScript: |
             az group create -n ${{ vars.AZURE_RG }} -l ${{ secrets.AZURE_LOCATION }}
                      
-          # Deploy Container Registry
       - name: Container registry 📦️
         uses: azure/arm-deploy@v1
         with:
-          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          scope: resourcegroup
           resourceGroupName: ${{ vars.AZURE_RG }}
-          region: ${{ vars.AZURE_REGION }}
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
           template: ./.github/actions/container_registry.bicep
+      
+      - name: App Service
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: ${{ vars.AZURE_RG }}
+          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
+          template: ./.github/actions/app_service.bicep 
                           
               
