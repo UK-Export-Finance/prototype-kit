@@ -2,7 +2,7 @@ param location string = resourceGroup().location
 param appServicePlanName string = 'asp-prototypekit-dev-001'
 param appServiceName string = 'app-prototypekit-dev-001'
 param vnetName string = 'vnet-prototypekit-dev-001'
-param vnetAddressSpace string = "172.16.40.0/22 172.16.60.0/23"
+param vnetAddressSpace string = '172.16.40.0/22 172.16.60.0/23'
 param subnetName string = 'snet-prototypekit-dev-001' 
 param subnetAddressPrefix string = '10.60.0.0/16'
 param containerRegistryName string = 'tfsdev'
@@ -19,7 +19,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   }
 }
 
-resource appService 'Microsoft.Web/sites@2021-02-01' = {
+resource appService 'Microsoft.Web/sites@2022-03-01' = {
   name: appServiceName
   location: location
   identity: {
@@ -74,7 +74,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
   }
 }
 
-resource containerRegistry 'Microsoft.ContainerRegistry/registries@2021-06-01' = {
+resource containerRegistry 'Microsoft.ContainerRegistry/registries@2022-12-01' = {
   name: containerRegistryName
   location: location
   sku: {
