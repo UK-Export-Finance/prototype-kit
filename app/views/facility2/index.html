@@ -34,13 +34,20 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           Status
         </dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">
-          {%  if (data['facility-2-updated'] == 'yes') %}
-          <!-- updated status view -->
-            <strong class="govuk-tag govuk-tag--green">Update completed</strong>
-          {% else %}
-          <!-- needs updating status view -->
-            <strong class="govuk-tag govuk-tag--red">Update required</strong>
+          
+          <!-- report is due and this facility has not been updated -->
+          {% if ('yes' in data['report-due']) and ('no' in data['facility-2-updated']) %}
+          <strong class="govuk-tag govuk-tag--red">Update required</strong>
+          
+          <!-- report is due and this facility has been updated -->
+          {% elif ('yes' in data['report-due']) and ('yes' in data['facility-2-updated']) %}
+          <strong class="govuk-tag govuk-tag--green">Update completed</strong>
+          
+          <!-- report is not due -->
+          {% elif ('no' in data['report-due']) %}
+          <strong class="govuk-tag">Issued</strong>
           {% endif %}
+
         </dd>
       </div>
 
@@ -125,28 +132,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         <dd class="govuk-summary-list__actions">
         </dd>
       </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          1 year probability of default (reported semi-annually)
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['facility-2-prob-default'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Flag: 90 days still no utilisation (from date of facility letter)
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Issued
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
+      
       </dl>
 
 
@@ -187,8 +173,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       </dl> 
 
 
-    <!-- Display once updated with ability to change-->
-    {% if 'yes' in data['facility-2-updated'] %}
+    <!-- Display when updated with ability to change-->
+    <!-- report is due and this facility has been updated -->
+    {% if ('yes' in data['report-due']) and ('yes' in data['facility-2-updated']) %}
+
     <h2 class="govuk-heading-l" id="updated">Utilisation and fees &ndash; {{ data['end-current-month'] }}</h2>
     
     <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['signed-in-name'] }}, {{ data['todays-date'] }}</p>
@@ -296,8 +284,10 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
     </dl>
 
-    {% elseif 'no' in data['facility-2-updated'] %}  
-    <!-- Last months report - no chqange links. Always display -->
+    <!-- report is due and this facility has not been updated -->
+    {% elif ('yes' in data['report-due']) and ('no' in data['facility-2-updated']) %}
+
+    <!-- Last months report - no chqange links. Display when report is due -->
     <h2 class="govuk-heading-l">Utilisation and fees &ndash; {{ data['end-previous-month'] }}</h2>
 
     <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
@@ -349,6 +339,60 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       text: "Update utilisation and fees",
       href: "/facility2/utilisation"
     }) }}
+
+    <!-- report is not due show just the last months without change links-->
+    {% elif ('no' in data['report-due']) %}
+
+    <h2 class="govuk-heading-l" id="updated">Utilisation and fees &ndash; {{ data['end-current-month'] }}</h2>
+    
+    <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['signed-in-name'] }}, {{ data['todays-date'] }}</p>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          Facility utilisation
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+          GBP {{ data['facility-2new-utilisation'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions  govuk-!-width-one-quarter">
+        </dd>
+      </div>
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UKEF's exposure
+        </dt>
+        <dd class="govuk-summary-list__value">
+          GBP {{ data['facility-2new-utilisation'] *0.8 }}
+        </dd>
+       
+      </div>
+    
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Fee payable to UKEF
+        </dt>
+        <dd class="govuk-summary-list__value">
+          GBP {{ data['facility-2new-paid'] }} 
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          
+        </dd>
+      </div>
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Fees accrued
+        </dt>
+        <dd class="govuk-summary-list__value">
+          GBP {{ data['facility-2new-accrued'] }} 
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          
+        </dd>
+      </div>
+    </dl>
 
     {% endif %}
 
