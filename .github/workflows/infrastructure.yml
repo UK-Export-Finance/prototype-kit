@@ -53,13 +53,7 @@ jobs:
         with:
           resourceGroupName: ${{ vars.AZURE_RG }}
           subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          template: ./.github/actions/container_registry.bicep
-      
-      - name: App Service
-        uses: azure/arm-deploy@v1
-        with:
-          resourceGroupName: ${{ vars.AZURE_RG }}
-          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION }}
-          template: ./.github/actions/app_service.bicep 
+          template: ./.github/actions/main.bicep
+    
                           
               
