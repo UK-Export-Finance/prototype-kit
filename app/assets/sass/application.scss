@@ -2,5 +2,7 @@
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
 // 
-
+$govuk-page-width: 1800px;
 // Add extra styles here
+.moj-sub-navigation {margin-bottom: 0 }
+.blue-panel { background: $govuk-brand-colour;}
