@@ -121,7 +121,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Bank facility limit
+            Facility value
           </dt>
           <dd class="govuk-summary-list__value govuk-!-width-one-half">
             GBP {{ data['facility-5-limit'] }}
@@ -171,7 +171,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Bank facility utilisation
+              Facility utilisation
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5-utilisation'] }}
@@ -216,7 +216,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           
 
         {% set utilisationHtml %} 
-        Bank facility utilisation on {{ data['end-current-month'] }}
+        Facility utilisation on {{ data['end-current-month'] }}
         {% endset %}
 
         {{ govukInput({
@@ -306,7 +306,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Bank facility utilisation
+              Facility utilisation
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5new-utilisation'] }}
@@ -383,7 +383,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Bank facility utilisation
+              Facility utilisation
             </dt>
             <dd class="govuk-summary-list__value">
               GBP {{ data['facility-5new-utilisation'] }}
@@ -437,7 +437,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         <p class="govuk-body">Enter details for the {{ data['report-month'] }} report.</p>
 
         {% set utilisationHtml %} 
-        Bank facility utilisation on {{ data['end-current-month'] }}
+        Facility utilisation on {{ data['end-current-month'] }}
         {% endset %}
 
         {{ govukInput({

@@ -120,24 +120,6 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
           23 July 2025
         </dd>
       </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          1 year probability of default (reported semi-annually)
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['facility-5-prob-default'] }}
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Flag: 90 days still no utilisation (from date of facility letter)
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Issued
-        </dd>
-      </div>
       </dl>
 
 
@@ -145,7 +127,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Bank facility limit
+            Facility value
           </dt>
           <dd class="govuk-summary-list__value govuk-!-width-one-half">
             GBP {{ data['facility-5-limit'] }}
@@ -181,7 +163,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half">
-              Bank facility utilisation
+              Facility utilisation
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
               GBP {{ data['facility-5-utilisation'] }}
@@ -231,7 +213,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         <p class="govuk-body">Enter details for the {{ data['report-month'] }} report.</p>
           
         {% set utilisationHtml %} 
-        Bank facility utilisation on {{ data['end-current-month'] }}
+        Facility utilisation on {{ data['end-current-month'] }}
         {% endset %}
 
         {{ govukInput({
@@ -300,7 +282,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half">
-              Bank facility utilisation
+              Facility utilisation
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
               GBP {{ data['facility-5new-utilisation'] }}
@@ -358,7 +340,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half">
-              Bank facility utilisation
+              Facility utilisation
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
               GBP {{ data['facility-5-utilisation'] }}
@@ -407,7 +389,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
       <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-half">
-              Bank facility utilisation
+              Facility utilisation
             </dt>
             <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
               GBP {{ data['facility-5new-utilisation'] }}
