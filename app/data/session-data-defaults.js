@@ -4,15 +4,15 @@ module.exports = {
   
   // Dates
   'report-due': 'yes',
-  'end-previous-month': '28 February 2023',
-  'end-current-month': '31 March 2023',
-  'last-month': 'February 2023',
-  'report-month': 'March 2023',
-  '1-month-ago': '3 March 2023',
-  'todays-date': '28 April 2023',
-  'todays-date-full': '28 April 2023',
-  'this-month-report-due': '18 April 2023',
-  'next-month-report-due': '15 May 2023',
+  'end-previous-month': '31 March 2023',
+  'end-current-month': '30 April 2023',
+  'last-month': 'March 2023',
+  'report-month': 'April 2023',
+  '1-month-ago': '3 April 2023',
+  'todays-date': '2 May 2023',
+  'todays-date-full': '2 May 2023',
+  'this-month-report-due': '16 May 2023',
+  'next-month-report-due': '14 June 2023',
   
   // Names
   'signed-in-name': 'John Smith',
