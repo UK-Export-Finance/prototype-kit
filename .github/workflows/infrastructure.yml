@@ -4,7 +4,7 @@ run-name: Prototype kit base infrastructure
 on:
   push:
     branches:
-      - feat/pipelines
+      - feat/pipelines2
 
 env:
   environment: infrastructure
