@@ -23,7 +23,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Monthly report summary</h1>
 
-    <h2 class="govuk-heading-l">Total fees: <strong>GBP {{(data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float) }}</strong></h2>
+    <h2 class="govuk-heading-l">Total fees: <strong>GBP {{((data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float)).toFixed(2) }}</strong></h2>
 
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">

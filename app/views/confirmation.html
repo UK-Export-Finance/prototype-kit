@@ -32,7 +32,7 @@
                   Report submitted to UKEF
                 </h1>
                 <div class="govuk-panel__body">
-                  Total fees: <strong>GBP {{(data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float) }}</strong><br>
+                  Total fees: <strong>GBP {{((data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float)).toFixed(2) }}</strong><br>
                   Payment reference: <strong>AB12345</strong>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     Amount payable to UKEF
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    GBP {{(data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float) }}
+                    GBP {{((data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float)).toFixed(2) }}
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
