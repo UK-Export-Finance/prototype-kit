@@ -9,8 +9,8 @@ module.exports = {
   'last-month': 'March 2023',
   'report-month': 'April 2023',
   '1-month-ago': '3 April 2023',
-  'todays-date': '2 May 2023',
-  'todays-date-full': '2 May 2023',
+  'todays-date': '15 May 2023',
+  'todays-date-full': '15 May 2023',
   'this-month-report-due': '16 May 2023',
   'next-month-report-due': '14 June 2023',
   
