@@ -177,7 +177,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     <!-- report is due and this facility has been updated -->
     {% if ('yes' in data['report-due']) and ('yes' in data['facility-2-updated']) %}
 
-    <h2 class="govuk-heading-l" id="updated">Utilisation and fees &ndash; {{ data['end-current-month'] }}</h2>
+    <h2 class="govuk-heading-l" id="updated">Utilisation and fees &ndash; {{ data['report-month'] }}</h2>
     
     <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['signed-in-name'] }}, {{ data['todays-date'] }}</p>
 
@@ -237,7 +237,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     </dl>
 
 
-    <h2 class="govuk-heading-l">Utilisation and fees &ndash; {{ data['end-previous-month'] }}</h2>
+    <h2 class="govuk-heading-l">Utilisation and fees &ndash; {{ data['last-month'] }}</h2>
 
     <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
 
@@ -288,7 +288,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     {% elif ('yes' in data['report-due']) and ('no' in data['facility-2-updated']) %}
 
     <!-- Last months report - no chqange links. Display when report is due -->
-    <h2 class="govuk-heading-l">Utilisation and fees &ndash; {{ data['end-previous-month'] }}</h2>
+    <h2 class="govuk-heading-l">Utilisation and fees &ndash; {{ data['last-month'] }}</h2>
 
     <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['last-month-name'] }}, {{ data['1-month-ago'] }}</p>
 
@@ -343,7 +343,7 @@ Facility – {{ serviceName }} – GOV.UK Prototype Kit
     <!-- report is not due show just the last months without change links-->
     {% elif ('no' in data['report-due']) %}
 
-    <h2 class="govuk-heading-l" id="updated">Utilisation and fees &ndash; {{ data['end-current-month'] }}</h2>
+    <h2 class="govuk-heading-l" id="updated">Utilisation and fees &ndash; {{ data['report-month'] }}</h2>
     
     <p class="govuk-body $govuk-secondary-text-colour">Updated by {{ data['signed-in-name'] }}, {{ data['todays-date'] }}</p>
 

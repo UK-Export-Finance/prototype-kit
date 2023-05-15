@@ -21,9 +21,13 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Monthly report summary</h1>
+    <h1 class="govuk-heading-xl">Ready to submit report</h1>
 
-    <h2 class="govuk-heading-l">Total fees: <strong>GBP {{((data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float)).toFixed(2) }}</strong></h2>
+    
+    
+    <h2 class="govuk-heading-l">Total fees due: <strong>GBP {{((data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float)).toFixed(2) }}</strong></h2>
+
+    <p class="govuk-body">Before submitting the report you can <a href="facility-list">go back</a> and make any amendments to the facilities.</p>
 
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
@@ -68,7 +72,7 @@
       </div>
     </dl>
 
-    <p class="govuk-body">Before submitting the report you can <a href="facility-list">go back</a> and make any amendments to the facilities.</p>
+    
 
     <form action="/confirmation" method="post" novalidate>
       <input type="hidden" name="report-due" value="no">

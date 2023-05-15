@@ -32,7 +32,7 @@
     <!-- display the due banner -->
     <div class="moj-banner" role="region" aria-label="information">
     
-      <div class="moj-banner__message">Monthly report due by {{ data['this-month-report-due'] }} – all facilities must be updated and submitted to UKEF.</div>
+      <div class="moj-banner__message">{{ data['report-month'] }} report due by {{ data['this-month-report-due'] }} – all facilities must be updated and submitted to UKEF.</div>
     
     </div>
     
@@ -45,6 +45,7 @@
       <div class="govuk-grid-column-one-half govuk-!-text-align-right">
         <!-- display submit button when all facilities updayed -->
         {% if (data['facility-1-updated'] == 'yes') and (data['facility-2-updated'] == 'yes') and (data['facility-4-updated'] == 'yes') and (data['facility-5-updated'] == 'yes') %}
+        
         {{ govukButton({
           text: "All facilities updated – continue",
           href: "summary"
