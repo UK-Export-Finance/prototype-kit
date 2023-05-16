@@ -1,0 +1,7 @@
+.env
+.github
+.gitattributes
+.gitignore
+.npmrc
+dist
+node_modules
