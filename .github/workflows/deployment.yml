@@ -9,7 +9,7 @@ on:
 env:
   ENVIRONMENT: infrastructure
   TIMEZONE: 'Europe/London'
-  APP_NAME: 'app-prototypekit-dev-002'
+  APP_NAME: 'app-prototypekit-dev-003'
   PACKAGE_PATH: '.'
 
 jobs:
@@ -37,7 +37,6 @@ jobs:
     steps:
       - name: Repository 🗃️
         uses: actions/checkout@v3
-      
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
