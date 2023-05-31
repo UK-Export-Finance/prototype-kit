@@ -1,5 +1,17 @@
 FROM node:18-alpine3.17
 
+# SSH Setup
+COPY init.sh /bin/init.sh
+COPY sshd_config /etc/ssh/
+RUN chmod 755 /bin/init.sh
+# 2. Install packages
+RUN apk add bash openrc openssh curl \
+    && echo "root:Docker!" | chpasswd \
+    && rm -rf /var/cache/apk/* \
+    && rc-update add sshd
+#3. Expose SSH port
+EXPOSE 80 ${SSH_PORT}
+
 # Set the working directory
 WORKDIR /app
 
