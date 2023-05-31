@@ -8,9 +8,9 @@ on:
 
 env:
   env: infrastructure
-  ARTIFACT_NAME: app-prototypekit-dev-003
+  ARTIFACT_NAME: app-prototypekit-dev-002
   ARTIFACT_FILE_NAME: prototype-kit
-  AZURE_WEBAPP_NAME: app-prototypekit-dev-003
+  AZURE_WEBAPP_NAME: app-prototypekit-dev-002
   AZURE_WEBAPP_PACKAGE_PATH: "."
   NODE_VERSION: "14.x"
 
