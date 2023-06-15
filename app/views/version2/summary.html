@@ -14,7 +14,7 @@
 
 {% block beforeContent %}
   {% include "includes/phase-banner.html" %}
-  <a class="govuk-back-link" href="/version2/facility-list">Back</a>
+  <a class="govuk-back-link" href="/version2/index">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@
     
     <h2 class="govuk-heading-l">Total fees due: <strong>GBP {{((data['facility-1new-paid'] | float) + (data['facility-2new-paid'] | float) + (data['facility-5new-paid'] | float) + (data['facility-4new-paid'] | float)).toFixed(2) }}</strong></h2>
 
-    <p class="govuk-body">Before submitting the report you can <a href="facility-list">go back</a> and make any amendments to the facilities.</p>
+    <p class="govuk-body">Before submitting the report you can <a href="index">go back</a> and make any amendments to the facilities.</p>
 
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
