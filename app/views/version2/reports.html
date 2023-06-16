@@ -1,0 +1,182 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Monthly report summary – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "/version2/includes/head.html" %}
+  <div class="moj-header__container">
+    {% include "/includes/phase-banner.html" %}
+  </div>
+  {% include "/version2/includes/primary-nav-reports-selected.html" %}
+{% endblock %}
+
+{% block pageScripts %}
+  {% include "includes/scripts.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="ukef-grid-column-one-seventh">
+    <nav class="moj-side-navigation" aria-label="Side navigation">
+        <h4 class="moj-side-navigation__title">2023</h4>
+        <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item moj-side-navigation__item--active">
+            <a href="bank-1" aria-current="location">{{ data['report-month-only'] }}</a>
+            </li>
+    
+            <li class="moj-side-navigation__item">
+            <a href="bank-1-month-2">{{ data['last-month-only'] }}</a>
+            </li>
+    
+            <li class="moj-side-navigation__item">
+            <a href="bank-1-month-3">{{ data['3rd-month-only'] }}</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+            <a href="bank-1-month-4">{{ data['4th-month-only'] }}</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+              <a href="#">January</a>
+            </li>
+        </ul>
+
+        <h4 class="moj-side-navigation__title">2022</h4>
+        <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item">
+            <a href="#3">December</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+            <a href="#2">November</a>
+            </li>
+    
+            <li class="moj-side-navigation__item">
+            <a href="#3">October</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+            <a href="#2">September</a>
+            </li>
+    
+            <li class="moj-side-navigation__item">
+            <a href="#3">August</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+            <a href="#2">July</a>
+            </li>
+    
+            <li class="moj-side-navigation__item">
+            <a href="#3">June</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+            <a href="#2">May</a>
+            </li>
+    
+            <li class="moj-side-navigation__item">
+            <a href="#3">April</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+            <a href="#2">March</a>
+            </li>
+    
+            <li class="moj-side-navigation__item">
+            <a href="#3">February</a>
+            </li>
+
+            <li class="moj-side-navigation__item">
+            <a href="#2">January</a>
+            </li>
+        </ul>
+
+  </nav>
+
+
+</div>
+
+
+
+  <div class="ukef-grid-column-six-seventh">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Reports</h1>
+    <h2 class="govuk-heading-l">
+      {{ data['report-month'] }}
+    </h2> 
+    <table class="govuk-table govuk-body-s" data-module="moj-sortable-table">
+      <caption class="govuk-table__caption govuk-table__caption--l"></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" aria-sort="none">Exporter</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">UKEF facility ID</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Type</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Utilisation</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Fees accrued</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Fee payable</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">{{ data['facility-1-name'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="{{ data['facility-1-ukef-id'] }}"><a href="facility1">{{ data['facility-1-ukef-id'] }}</a></td>
+          <td class="govuk-table__cell">{{ data['facility-1-type-short'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="400000">GBP {{ data['facility-1-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="10000">GBP {{ data['facility-1-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="1000">GBP {{ data['facility-1-paid'] }} </td>
+        </tr>
+
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">{{ data['facility-2-name'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="{{ data['facility-2-ukef-id'] }}"><a href="facility2">{{ data['facility-2-ukef-id'] }}</a></td>
+          <td class="govuk-table__cell">{{ data['facility-2-type-short'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="125000">GBP {{ data['facility-2-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="3600">GBP {{ data['facility-2-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="800">GBP {{ data['facility-2-paid'] }} </td>
+        </tr>
+        
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">{{ data['facility-4-name'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="{{ data['facility-4-ukef-id'] }}"><a href="facility4">{{ data['facility-4-ukef-id'] }}</a></td>
+          <td class="govuk-table__cell">{{ data['facility-4-type-short'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="1900000">GBP {{ data['facility-4-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="50000">GBP {{ data['facility-4-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="5000">GBP {{ data['facility-4-paid'] }} </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">{{ data['facility-5-name'] }}</td>
+            <td class="govuk-table__cell" data-sort-value="{{ data['facility-5-ukef-id'] }}"><a href="facility5">{{ data['facility-5-ukef-id'] }}</a></td>
+          <td class="govuk-table__cell">{{ data['facility-5-type-short'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="790000">GBP {{ data['facility-5-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="15000">GBP {{ data['facility-5-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="1200">GBP {{ data['facility-5-paid'] }} </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-text-align-right" colspan="5">Total fees payable</th>
+          <td class="govuk-table__cell govuk-!-font-weight-bold">GBP {{ data['bank-1-fee-payable'] }}</td>
+        </tr>
+      </tfoot>
+    </table>
+
+
+    
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

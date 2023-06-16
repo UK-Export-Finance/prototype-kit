@@ -6,3 +6,64 @@
 // Add extra styles here
 .moj-sub-navigation {margin-bottom: 0 }
 .blue-panel { background: $govuk-brand-colour;}
+
+table.govuk-body-s {
+    font-size: 1rem;
+  }
+
+  .ukef-grid-column-one-sixth {
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 100%;
+  }
+  
+  @media (min-width: 40.0625em) {
+    .ukef-grid-column-one-sixth {
+      float: left;
+      width: 16.6667%;
+    }
+  }
+  
+  
+  
+  .ukef-grid-column-five-sixth {
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 100%;
+  }
+  @media (min-width: 40.0625em) {
+    .ukef-grid-column-five-sixth {
+      float: left;
+      width: 83.3333%;
+    }
+  }
+  
+  .ukef-grid-column-one-seventh {
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 100%;
+  }
+  
+  @media (min-width: 40.0625em) {
+    .ukef-grid-column-one-seventh {
+      float: left;
+      width: 14.28%;
+    }
+  }
+  
+  .ukef-grid-column-six-seventh {
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 100%;
+  }
+  
+  @media (min-width: 40.0625em) {
+    .ukef-grid-column-six-seventh {
+      float: left;
+      width: 85.72%;
+    }
+  }
+  
+  .moj-side-navigation {
+    padding-top: 0 !important;
+  }

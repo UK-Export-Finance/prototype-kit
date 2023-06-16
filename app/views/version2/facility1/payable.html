@@ -6,6 +6,10 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block header %}
   {% include "/version2/includes/head.html" %}
+  <div class="moj-header__container">
+    {% include "/includes/phase-banner.html" %}
+  </div>
+  {% include "/version2/includes/primary-nav-nothing-selected.html" %}
 {% endblock %}
 
 {% block pageScripts %}
@@ -13,7 +17,6 @@ Update facility – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/phase-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 

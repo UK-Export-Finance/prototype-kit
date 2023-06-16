@@ -13,6 +13,17 @@ module.exports = {
   'todays-date-full': '7 June 2023',
   'this-month-report-due': '14 June 2023',
   'next-month-report-due': '14 July 2023',
+
+
+  'last-month': 'April 2023',
+  '3rd-month': 'March 2023',
+  '4th-month': 'February 2023',
+  '5th-month': 'January 2023',
+
+  'report-month-only': 'May',
+  'last-month-only': 'April',
+  '3rd-month-only': 'March',
+  '4th-month-only': 'February',
   
   // Names
   'signed-in-name': 'John Smith',
