@@ -1,0 +1,75 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  View report – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "/version2/includes/head.html" %}
+  <div class="moj-header__container">
+    {% include "/includes/phase-banner.html" %}
+  </div>
+  <!--{% include "/version2/includes/primary-nav-reports-selected.html" %}-->
+{% endblock %}
+
+{% block pageScripts %}
+  {% include "includes/scripts.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">View report</h1>
+    <h2 class="govuk-heading-m">
+      {{ data['report-month'] }}
+    </h2> 
+    <table class="govuk-table govuk-body-s" data-module="moj-sortable-table">
+      <caption class="govuk-table__caption govuk-table__caption--l"></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header" aria-sort="none">Bank transaction reference</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">UKEF facility ID</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Client name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Base currency</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Utilisation</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Fees accrued</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Fees paid</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" data-sort-value="{{ data['facility-1-ref'] }}"><a href="facility1">{{ data['facility-1-ref'] }}</a></td>
+          <td class="govuk-table__cell">{{ data['facility-1-ukef-id'] }}</td>
+          <td class="govuk-table__cell">{{ data['facility-1-name'] }}</td>
+          <td class="govuk-table__cell">{{ data['facility-1-base-currency'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="400000">GBP {{ data['facility-1-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="10000">GBP {{ data['facility-1-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="1000">GBP {{ data['facility-1-paid'] }} </td>
+        </tr>
+
+      </tbody>
+      <!--<tfoot>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header govuk-!-text-align-right" colspan="5">Total fees payable</th>
+          <td class="govuk-table__cell govuk-!-font-weight-bold">GBP 8,800.00</td>
+        </tr>
+      </tfoot>-->
+    </table>
+
+
+    
+
+
+
+
+</div>
+
+
+{% endblock %}
