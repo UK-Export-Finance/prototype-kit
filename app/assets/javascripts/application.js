@@ -4,6 +4,5 @@
 //
 
 window.GOVUKPrototypeKit.documentReady(() => {
-  window.MOJFrontend.initAll()
-    // Add JavaScript here
-})
+  window.MOJFrontend.initAll();
+});
