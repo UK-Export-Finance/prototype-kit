@@ -1,0 +1,52 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Sign in – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "/version1/includes/head-not-signed-in.html" %}
+  <div class="moj-header__container">
+    {% include "/includes/phase-banner.html" %}
+  </div>
+{% endblock %}
+
+
+{% block beforeContent %}
+  
+{% endblock %}
+
+{% block content %}
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <h1 class="govuk-heading-l">Sign in</h1>
+          {{ govukInput({
+            label: {
+              text: "Email address",
+              classes: "govuk-label--s"
+            },
+            id: "username",
+            name: "username",
+            value: data['username']
+          }) }}
+  
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="password">
+                Password
+              </label>
+            </h1>
+            <input class="govuk-input" id="password" name="password" type="password">
+          </div>
+
+          {{ govukButton({
+                text: "Sign in",
+                href: "/version1/facility-list.html"
+              }) }}
+
+              <p class="govuk-body"><a href="#" class="govuk-link">I've forgotten my password</a></p> 
+        </div>
+      </div>
+
+{% endblock %}
